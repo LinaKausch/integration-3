@@ -8,11 +8,44 @@ html {
     box-sizing: inherit;
 }
 
+:root {
+    --accent-gold: #F8BF7A;
+    --accent-darkgold: #DE9641;
+    --background: #180A01;
+    --cream: #ECE7E3;
+    --background-int: #DBB78B;
+    --text-color: #FFFF;
+    --coffee: #593721;
+
+    --fs--1: clamp(0.8333rem, 0.7754rem + 0.2377vw, 1rem);
+    --fs-0: clamp(1rem, 0.9131rem + 0.3565vw, 1.25rem);
+    --fs-1: clamp(1.2rem, 1.074rem + 0.5169vw, 1.5625rem);
+    --fs-2: clamp(1.44rem, 1.2616rem + 0.7317vw, 1.9531rem);
+    --fs-3: clamp(1.728rem, 1.48rem + 1.0173vw, 2.4414rem);
+    --fs-4: clamp(2.0736rem, 1.7336rem + 1.3949vw, 3.0518rem);
+    --fs-5: clamp(2.4883rem, 2.0273rem + 1.8914vw, 3.8147rem);
+    --fs-6: clamp(2.986rem, 2.3664rem + 2.5417vw, 4.7684rem);
+
+    --s-3xs: clamp(0.25rem, 0.2283rem + 0.0891vw, 0.3125rem);
+    --s-2xs: clamp(0.5rem, 0.4566rem + 0.1783vw, 0.625rem);
+    --s-xs: clamp(0.75rem, 0.6848rem + 0.2674vw, 0.9375rem);
+    --s-s: clamp(1rem, 0.9131rem + 0.3565vw, 1.25rem);
+    --s-m: clamp(1.25rem, 1.1414rem + 0.4456vw, 1.5625rem);
+    --s-l: clamp(1.75rem, 1.5979rem + 0.6239vw, 2.1875rem);
+    --s-xl: clamp(2.3125rem, 2.117rem + 0.8021vw, 2.875rem);
+    --s-2xl: clamp(3rem, 2.7393rem + 1.0695vw, 3.75rem);
+    --s-3xl: clamp(4rem, 3.6524rem + 1.426vw, 5rem);
+    --s-4xl: clamp(5rem, 4.5655rem + 1.7825vw, 6.25rem);
+    --s-5xl: clamp(10rem, 9.131rem + 3.5651vw, 12.5rem);
+    --s-6xl: clamp(17rem, 15.5227rem + 6.0606vw, 21.25rem);
+
+    --letter-s: 0.1rem;
+}
+
 img {
     max-width: 100%;
     height: auto;
 }
-
 
 .hidden {
     position: absolute;
@@ -28,4 +61,368 @@ img {
 body {
     max-width: 90rem;
     margin: auto;
+    background-color: var(--background);
+    color: var(--text-color);
+    font-size: var(--fs-0);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin: var(--s-m) 0;
+}
+
+header,
+section,
+footer {
+    padding: 0 var(--s-m);
+}
+
+p,
+li {
+    line-height: 140%;
+}
+
+p {
+    padding: var(--s-s) 0;
+}
+
+h1 {
+    font-size: var(--fs-6);
+}
+
+h1,
+.the,
+.antwerp {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    color: var(--accent-darkgold);
+}
+
+h2,
+h3,
+.highlight__name,
+.special__strong,
+.officiana {
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: var(--letter-s);
+}
+
+h2 {
+    font-size: var(--fs-5);
+    line-height: 130%;
+    text-align: center;
+}
+
+h3 {
+    font-size: var(--fs-4);
+    text-align: center;
+    color: var(--accent-darkgold);
+}
+
+strong {
+    color: var(--accent-gold);
+}
+
+.highlight__name,
+.special__strong {
+    font-size: var(--fs-3);
+    text-align: center;
+}
+
+.the {
+    font-size: var(--fs-2);
+}
+
+.cta__text {
+    font-weight: 300;
+}
+
+.header {
+    text-align: center;
+    padding-top: var(--s-m);
+}
+
+.introduction {
+    padding: var(--s-2xl) var(--s-m);
+}
+
+.intro {
+    padding: var(--s-s);
+    padding-bottom: var(--s-xl);
+}
+
+.gold {
+    color: var(--accent-darkgold);
+}
+
+.about {
+    padding: var(--s-s) 0;
+}
+
+li {
+    padding: var(--s-3xs)
+}
+
+.centered {
+    text-align: center;
+}
+
+.narrow {
+    padding: 0 var(--s-xl);
+}
+
+.narrow__left {
+    padding-right: var(--s-4xl);
+}
+
+.narrower {
+    padding-left: var(--s-5xl);
+}
+
+.name {
+    padding: var(--s-s) 0;
+}
+
+.special__strong {
+    line-height: 2rem;
+}
+
+.right__text {
+    padding-left: var(--s-5xl);
+}
+
+.born {
+    padding: 0 var(--s-xl);
+}
+
+.antwerp {
+    letter-spacing: var(--letter-s);
+    font-size: var(--fs-6);
+    color: var(--text-color);
+    text-align: center;
+    padding: var(--s-4xl) 0;
+    padding-left: var(--s-m);
+}
+
+.officiana {
+    font-size: var(--fs-3);
+}
+
+.interaction {
+    background-color: var(--background-int);
+    padding: var(--s-2xl) var(--s-m);
+}
+
+.interaction__title {
+    color: var(--background);
+    font-weight: 500;
+    font-size: var(--fs-1);
+    text-align: center;
+    padding: var(--s-xl);
+}
+
+.hint {
+    color: var(--background);
+    font-size: var(--fs--1);
+}
+
+strong.hint {
+    font-weight: 600;
+}
+
+.book__choices {
+    padding-top: var(--s-xl);
+    display: flex;
+    justify-content: space-around;
+}
+
+.quality {
+    padding: var(--s-xl) var(--s-m);
+    margin: 0 var(--s-2xs);
+    border-left: 0.5px solid var(--cream);
+    border-right: 0.5px solid var(--cream);
+    border-top: none;
+    border-bottom: none;
+}
+
+.quality h2 {
+    text-align: center;
+    padding: var(--s-s);
+}
+
+.half__line {
+    position: absolute;
+    left: 0px;
+    width: 50%;
+    height: 1px;
+    border-top: 1px solid var(--accent-darkgold);
+}
+
+.reputation__text {
+    font-size: var(--fs-1);
+    padding-top: var(--s-l);
+    padding-bottom: var(--s-s);
+}
+
+.reputation>p:last-child {
+    padding-right: var(--s-l);
+    padding-top: var()
+}
+
+.high__standards {
+    padding: var(--s-3xl) var(--s-m);
+}
+
+.standards__intro {
+    text-align: center;
+}
+
+.standards__intro p {
+    color: var(--accent-gold);
+    font-size: var(--fs-1);
+    padding: var(--s-s);
+}
+
+.materials {
+    position: relative;
+}
+
+.material {
+    font-weight: 300;
+}
+
+.respected {
+    text-align: center;
+    padding-top: var(--s-2xl);
+}
+
+.center__line {
+    width: 75%;
+    height: 1px;
+    border-top: 1px solid var(--accent-darkgold);
+    margin: 0 auto;
+}
+
+.about__polyglot {
+    padding-right: var(--s-m);
+}
+
+.languages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    text-align: center;
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: var(--letter-s);
+    font-size: var(--fs-3);
+    padding: var(--s-xs) var(--s-2xl);
+    background-color: var(--background-int);
+    border: 1px dashed var(--background);
+}
+
+.submit__button {
+    text-align: center;
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    letter-spacing: var(--letter-s);
+    font-style: normal;
+    font-size: var(--fs-1);
+    padding: var(--s-2xs) var(--s-s);
+    border-radius: 3rem;
+    border: 1px solid var(--text-color);
+    background-color: var(--coffee);
+    color: var(--cream);
+}
+
+.hustles {
+    padding: var(--s-xl) var(--s-m);
+}
+
+.choices {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    gap: var(--s-s);
+}
+
+.interaction__choice {
+    white-space: nowrap;
+}
+
+.risks {
+    padding: var(--s-xl) var(--s-m);
+}
+
+.one__risks {
+    padding-top: var(--s-xl);
+    padding-bottom: 0;
+    font-family: "Cinzel", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--fs-1);
+}
+
+.dangerous {
+    letter-spacing: var(--letter-s);
+    padding-bottom: 0;
+    font-family: "Cinzel", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--fs-3);
+}
+
+.dangerous__description {
+    padding: 0 var(--s-m);
+    padding-top: var(--s-l);
+}
+
+.protestants {
+    padding: var(--s-3xl) var(--s-m);
+}
+
+.protestants h3 {
+    padding: 0 var(--s-2xl);
+}
+
+.printing__stars h3 {
+    padding: 0 var(--s-2xl);
+    text-align: center;
+    white-space: pre-wrap;
+    display: inline-block;
+    word-spacing: 3em;
+}
+
+.divine__will {
+    font-family: "Cinzel", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--fs-1);
+    padding: 0 var(--s-2xs);
+}
+
+.printing__house{
+    padding: var(--s-xl) var(--s-m);
+}
+
+.today__line{
+    width: 60%;
+        height: 1px;
+        border-bottom: 1px solid var(--text-color);
+        margin: 0 auto;
+        padding-top: var(--s-xl);
+}
+
+.today {
+    font-family: "Cinzel", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: var(--fs-3);
 }
