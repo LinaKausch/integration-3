@@ -408,21 +408,59 @@ input {
     padding: 0 var(--s-2xs);
 }
 
-.printing__house{
+.printing__house {
     padding: var(--s-xl) var(--s-m);
 }
 
-.today__line{
+.today__line {
     width: 60%;
-        height: 1px;
-        border-bottom: 1px solid var(--text-color);
-        margin: 0 auto;
-        padding-top: var(--s-xl);
+    height: 1px;
+    border-bottom: 1px solid var(--text-color);
+    margin: 0 auto;
+    padding-top: var(--s-xl);
 }
 
 .today {
     font-family: "Cinzel", serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: var(--fs-3);
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--fs-3);
 }
+
+.interaction__choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 100px;
+    margin: 0 auto;
+}
+
+.interaction__choice picture img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.bibles {
+    display: flex;
+    justify-content: center;
+    position:absolute;
+    margin-left: -1rem;
+}
+
+.bibles picture{
+    margin: -1rem;
+
+}
+
+/* .hide{
+    position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+} */
