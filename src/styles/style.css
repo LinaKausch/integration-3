@@ -401,7 +401,7 @@ input {
     text-align: center;
     white-space: pre-wrap;
     display: inline-block;
-    word-spacing: 3em;
+    /* word-spacing: 3em; */
 }
 
 .divine__will {
@@ -506,6 +506,10 @@ input {
     height: auto;
 }
 
+.explanation {
+    padding-top: var(--s-xl);
+}
+
 .consequences__choice picture {
     width: 100%;
     height: auto;
@@ -576,12 +580,124 @@ input {
     background-color: var(--coffee);
     /* border: 1px solid var(--accent-gold); */
     outline: 1px solid var(--coffee);
-    /* Add an outer line */
     outline-offset: 2px;
 }
 
-.button__position{
+.button__position {
     display: flex;
     justify-content: center;
     padding: var(--s-m);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: var(--background);
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+footer {
+    padding-top: var(--s-m);
+}
+
+.footer__nav {
+    display: flex;
+}
+
+.footer__logo {
+    display: flex;
+    justify-content: center;
+    padding: var(--s-s);
+}
+
+.social__media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social__icon {
+    display: inline-block;
+}
+
+.icon {
+    max-width: 60px;
+}
+
+
+/* .hamburger {
+    background-color: var(--background);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 34px;
+    width: 40px;
+}
+
+.hamburger .line {
+    background-color: var(--background);
+    height: 3px;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu ul li {
+    padding: 0.5rem 0;
+}
+
+.nav-menu ul li:hover{
+    color: var(--accent-darkgold);
+}
+
+
+.nav-menu.active {
+    display: flex;
+    background-color: var(--background);
+    color: var(--cream);
+    font-size: var(--fs-1);
+    border: 1px solid var(--cream);
+    outline-offset: 2px;
+    outline: 1px solid var(--cream);
+} */
+
+
+@media (min-width: 840px) {
+    .hamburger {
+        display: none;
+    }
+
+    .nav-menu {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        gap: 2rem;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+    }
 }

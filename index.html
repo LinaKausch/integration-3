@@ -17,20 +17,35 @@
 
 <body>
   <header>
-    <img sizes="(min-width: 840px) 200px, (min-width: 400px) 150px, (min-width: 340px) 100px, calc(-250vw + 900px)"
+    <img sizes="(min-width: 840px) 200px, (min-width: 400px) 100px, (min-width: 340px) 80px, calc(-250vw + 900px)"
       srcset="
     ./src/assets/img/logo-small.avif 150w,
     ./src/assets/img/logo-mid.avif 693w" src="./src/assets/img/logo-mid.avif" alt="Plantin-Moretus museum logo">
-    <button>Visit</button>
-    <div class="header">
-      <p class="highlight__name">Christophe Plantin</p>
-      <p class="the">The</p>
-      <h1> renaissance
-        hustler</h1>
-      <p class="cta__text">Experience His Legacy</p>
-    </div>
+    <!-- <button class="hamburger" aria-label="Toggle navigation">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </button>
+    <nav class="nav-menu">
+      <ul>
+        <li>Introduction</li>
+        <li>Quality over quantity</li>
+        <li>Plantin's hustles</li>
+        <li>Officina Plantiniana</li>
+      </ul>
+    </nav> -->
+
   </header>
   <main>
+    <section>
+      <div class="header">
+        <p class="highlight__name">Christophe Plantin</p>
+        <p class="the">The</p>
+        <h1> renaissance
+          hustler</h1>
+        <p class="cta__text">Experience His Legacy</p>
+      </div>
+    </section>
     <section class="introduction">
       <h2 class="hidden">Introduction</h2>
       <div class="intro">
@@ -78,7 +93,7 @@
     </section>
     <section class="interaction">
       <div class="top__corner">
-        <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="100">
+        <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="35%">
       </div>
       <h3 class="hidden">Interaction</h3>
       <p class="interaction__title">If you would be a printer <br> what would you choose?</p>
@@ -147,7 +162,7 @@
     </section>
     <section class="interaction">
       <div class="top__corner">
-        <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="100">
+        <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="35%">
       </div>
       <h3 class="hidden">Interaction</h3>
       <p class="interaction__title">Set letters for printing<br>Plantin’s name</p>
@@ -224,7 +239,6 @@
       </div>
       <p class="centered">One of his greatest achievements was</p>
       <h3 class="gold">Polyglot Bible</h3>
-      <p>image</p>
       <p class="about__polyglot">A massive project that required the printing of multiple languages on the same page
         with perfect alignment.
         This was an
@@ -236,7 +250,7 @@
     </section>
     <section class="interaction">
       <div class="top__corner">
-        <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="100">
+        <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="35%">
       </div>
       <h3 class="hidden">Interaction</h3>
       <p class="interaction__title">Guess in how many languages Polyglot bible was written?</p>
@@ -272,7 +286,7 @@
     </section>
     <section class="interaction">
       <div class="top__corner">
-        <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="100">
+        <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="35%">
       </div>
       <h3 class="hidden">Interaction</h3>
       <p class="interaction__title">Choose which ones would be those consequences</p>
@@ -350,24 +364,20 @@
     </section>
     <section class="interaction">
       <div class="top__corner">
-        <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="100">
+        <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="35%">
       </div>
       <h3 class="hidden">Interaction</h3>
       <p class="interaction__title">Would you be able to get away with illegal printing and distribution?</p>
       <p class="hint">Shake your phone to roll the dice</p>
       <div class="dices">
-        <img src="./src/assets/svg/dice-dots-2.svg" srcset="
-            ./src/assets/svg/dice-dots-2-small.svg 155w,
-            ./src/assets/svg/dice-dots-2.svg 300w" sizes="(max-width: 640px) 100px, 200px" alt="Dice with 2 dots">
-        <img src="./src/assets/svg/dice-dots-5.svg" srcset="
-            ./src/assets/svg/dice-dots-5-small.svg 155w,
-            ./src/assets/svg/dice-dots-5.svg 300w" sizes="(max-width: 640px) 100px, 200px" alt="Dice with 5 dots">
+        <img src="./src/assets/svg/dice-dots-2.svg" alt="Dice with 2 dots" width="40%">
+        <img src="./src/assets/svg/dice-dots-5.svg" alt="Dice with 5 dots" width="40%">
       </div>
-      <p><strong>Double number</strong> You would
-        <strong>Otherwise</strong> You wouldn’t
+      <p class="explanation"><strong class="hint">Double number</strong>: You would! <br>
+        <strong class="hint">Otherwise</strong>: You wouldn’t
       </p>
       <div class="bottom__corner">
-        <img src="./src/assets/svg/right-bot-corner.png" alt="corner decoration" width="100">
+        <img src="./src/assets/svg/right-bot-corner.png" alt="corner decoration" width="100px">
       </div>
     </section>
     <section class="protestants">
@@ -431,7 +441,7 @@
     <div class="line"></div>
     <section class="museum">
       <div class="top__corner">
-        <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="100">
+        <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="35%">
       </div>
       <h2>the Museum</h2>
       <p class="highlight__name">Plantin-Moretus</p>
@@ -453,7 +463,49 @@
       </div>
     </section>
   </main>
-  <footer></footer>
+  <footer>
+    <div class="contacts">
+      <div class="footer__logo">
+        <img src="./src/assets/img/logo-small.avif" width="100px">
+      </div>
+      <p>Vrijdagmarkt 22<br>
+        2000 Antwerp <br>
+        Belgium <br>
+        tel. +32 (0)3 221 14 50<br>
+        museum.plantin.moretus@antwerpen.be
+      </p>
+    </div>
+    <nav>
+      <ul class="footer__nav">
+        <li><a href="">Plan your visit</a></li>
+        <li> <a href="">What to see?</a></li>
+        <li> <a href="">About us</a></li>
+      </ul>
+    </nav>
+    <div class="social__media">
+      <p>Stay in touch</p>
+      <div class="social__icons">
+        <div class="social__icon">
+          <a href=""><img class="icon" src="./src/assets/svg/social-fb.svg" alt="Facebook icon" width="50%"></a>
+        </div>
+        <div class="social__icon">
+          <a href=""><img class="icon" src="./src/assets/svg/social-insta.svg" alt="Instagram icon" width="50%"></a>
+        </div>
+        <div class="social__icon">
+          <a href=""><img class="icon" src="./src/assets/svg/social-pint.svg" alt="Pinterest icon" width="50%"></a>
+        </div>
+        <div class="social__icon">
+          <a href=""><img class="icon" src="./src/assets/svg/social-yt.svg" alt="Youtube icon" width="50%"></a>
+        </div>
+        <div class="social__icon">
+          <a href=""><img class="icon" src="./src/assets/svg/social-sound.svg" alt="Soundcloud icon" width="50%"></a>
+        </div>
+        <div class="social__icon">
+          <a href=""><img class="icon" src="./src/assets/svg/social-trip.svg" alt="Tripadvisor icon" width="50%"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
   <script type="module" src="./src/scripts/main.js"></script>
 </body>
 
