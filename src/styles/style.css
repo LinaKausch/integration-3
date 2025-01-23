@@ -630,7 +630,7 @@ footer {
 }
 
 
-/* .hamburger {
+.hamburger {
     background-color: var(--background);
     border: none;
     cursor: pointer;
@@ -683,7 +683,7 @@ footer {
     border: 1px solid var(--cream);
     outline-offset: 2px;
     outline: 1px solid var(--cream);
-} */
+}
 
 
 @media (min-width: 840px) {
