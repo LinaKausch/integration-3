@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    scroll-padding-top: 80px;
 }
 
 *,
@@ -164,6 +165,16 @@ strong {
 
 li {
     padding: var(--s-3xs)
+}
+
+a {
+    color: var(--text-color);
+        font-size: var(--fs-0);
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        text-decoration: none;
 }
 
 .centered {
@@ -629,8 +640,25 @@ footer {
     max-width: 60px;
 }
 
+.nav__menu {
+    display: flex;
+    position: static;
+    gap: 1rem;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.nav__menu__list {
+    display: flex;
+    flex-direction: column;
+}
 
 .hamburger {
+    display: none;
+}
+
+.js-enabled .hamburger {
     background-color: var(--background);
     border: none;
     cursor: pointer;
@@ -648,7 +676,7 @@ footer {
     border-radius: 2px;
 }
 
-.nav-menu {
+.js-enabled .nav__menu {
     display: none;
     flex-direction: column;
     gap: 1rem;
@@ -660,44 +688,42 @@ footer {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.nav-menu ul {
+.nav__menu__list {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.nav-menu ul li {
-    padding: 0.5rem 0;
+.nav__menu__list li {
+    padding: var(--s-2xs);
+}
+.nav__menu__list li a{
+    padding: var(--s-2xs);
 }
 
-.nav-menu ul li:hover{
-    color: var(--accent-darkgold);
+.nav__menu__list li a:hover {
+    color: var(--accent-gold);
+    border-bottom: 1px solid #DBB78B;
+    font-weight: 500;
 }
 
 
-.nav-menu.active {
+.js-enabled .nav__menu.active {
     display: flex;
     background-color: var(--background);
     color: var(--cream);
     font-size: var(--fs-1);
     border: 1px solid var(--cream);
-    outline-offset: 2px;
+    outline-offset: 3px;
     outline: 1px solid var(--cream);
 }
 
 
-@media (min-width: 840px) {
+@media (min-width: 950px) {
     .hamburger {
         display: none;
     }
 
-    .nav-menu {
-        display: flex;
-        position: static;
-        flex-direction: row;
-        gap: 2rem;
-        background: none;
-        box-shadow: none;
-        padding: 0;
-    }
+    
+
 }

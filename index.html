@@ -21,17 +21,17 @@
       srcset="
     ./src/assets/img/logo-small.avif 150w,
     ./src/assets/img/logo-mid.avif 693w" src="./src/assets/img/logo-mid.avif" alt="Plantin-Moretus museum logo">
-    <button class="hamburger" aria-label="Toggle navigation">
+    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav__menu">
       <span class="line"></span>
       <span class="line"></span>
       <span class="line"></span>
     </button>
-    <nav class="nav-menu">
-      <ul>
-        <li>Introduction</li>
-        <li>Quality over quantity</li>
-        <li>Plantin's hustles</li>
-        <li>Officina Plantiniana</li>
+    <nav class="nav__menu" id="nav__menu">
+      <ul class="nav__menu__list">
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#quality">Quality over quantity</a></li>
+        <li><a href="#hustles">Plantin's hustles</a></li>
+        <li><a href="#office">Officina Plantiniana</a></li>
       </ul>
     </nav>
 
@@ -46,7 +46,7 @@
         <p class="cta__text">Experience His Legacy</p>
       </div>
     </section>
-    <section class="introduction">
+    <section class="introduction" id="introduction">
       <h2 class="hidden">Introduction</h2>
       <div class="intro">
         <p class="highlight__name gold">Plantin</p>
@@ -130,7 +130,7 @@
         <img src="./src/assets/svg/right-bot-corner.png" alt="corner decoration" width="100">
       </div>
     </section>
-    <section class="quality">
+    <section class="quality" id="quality">
       <h2>Quality
         over
         Quantity</h2>
@@ -265,7 +265,7 @@
         <img src="./src/assets/svg/right-bot-corner.png" alt="corner decoration" width="100">
       </div>
     </section>
-    <section class="hustles">
+    <section class="hustles" id="hustles">
       <h2>Plantin’s Hustles</h2>
       <p class="narrow__left">To keep his business successful, Plantin had to be <strong>strategic</strong>.</p>
       <picture>
@@ -419,7 +419,7 @@
         <strong>dangerous</strong>, Plantin knew they were in demand and printed them to meet public interest.
       </p>
     </section>
-    <section class="printing__house">
+    <section class="printing__house" id="office">
       <p class="centered">Plantin’s printing house</p>
       <h2>Officina Plantiniana</h2>
       <p class="centered">Becames one of the <strong>most respected</strong> in Europe. He printed religious texts,
