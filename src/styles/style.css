@@ -83,7 +83,7 @@ li {
 }
 
 p {
-    padding: var(--s-s) 0;
+    padding-bottom: var(--s-s);
 }
 
 h1 {
@@ -171,7 +171,8 @@ li {
 }
 
 .narrow {
-    padding: 0 var(--s-xl);
+    padding-left: var(--s-xl);
+    padding-right: var(--s-xl);
 }
 
 .narrow__left {
@@ -183,7 +184,8 @@ li {
 }
 
 .name {
-    padding: var(--s-s) 0;
+    padding-top: var(--s-s);
+    padding-bottom: var(--s-s);
 }
 
 .special__strong {
@@ -213,7 +215,8 @@ li {
 
 .interaction {
     background-color: var(--background-int);
-    padding: var(--s-2xl) var(--s-m);
+    padding: var(--s-m) var(--s-m) var(--s-4xl) var(--s-m);
+    position: relative;
 }
 
 .interaction__title {
@@ -237,6 +240,7 @@ strong.hint {
     padding-top: var(--s-xl);
     display: flex;
     justify-content: space-around;
+
 }
 
 .quality {
@@ -427,16 +431,88 @@ input {
     font-size: var(--fs-3);
 }
 
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid var(--text-color);
+    margin: 0 auto;
+    padding-top: var(--s-2xs);
+}
+
+.museum {
+    background-color: var(--background-int);
+    color: var(--background);
+    padding-top: var(--s-2xl);
+    padding-bottom: var(--s-2xl);
+    position: relative;
+}
+
+.museum h2 {
+    padding-top: var(--s-l);
+}
+
+.light__highlight {
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: var(--letter-s);
+    padding-bottom: var(--s-xs);
+}
+
 .interaction__choice {
     display: flex;
     flex-direction: column;
+    align-content: space-around;
     align-items: center;
     text-align: center;
-    min-width: 100px;
     margin: 0 auto;
 }
 
+.interaction__choice p,
+.consequences__choice p {
+    text-align: center;
+    font-family: "Cinzel", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--fs--1);
+    padding: var(--s-3xs) var(--s-2xs);
+    border-radius: 3rem;
+    border: 1px solid var(--text-color);
+    background-color: var(--coffee);
+    color: var(--cream);
+    margin-top: -0.5rem;
+    white-space: pre-wrap;
+}
+
+.interaction__choice picture {
+    display: flex;
+    justify-content: center;
+}
+
 .interaction__choice picture img {
+    width: 90%;
+    height: auto;
+    display: block;
+}
+
+.consequences__choice {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    /* margin: 0 auto; */
+    min-width: 130px;
+    height: auto;
+}
+
+.consequences__choice picture {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.consequences__choice picture img {
     width: 100%;
     height: auto;
     display: block;
@@ -445,13 +521,12 @@ input {
 .bibles {
     display: flex;
     justify-content: center;
-    position:absolute;
+    position: absolute;
     margin-left: -1rem;
 }
 
-.bibles picture{
+.bibles picture {
     margin: -1rem;
-
 }
 
 /* .hide{
@@ -464,3 +539,49 @@ input {
         clip: rect(0, 0, 0, 0);
         border: 0;
 } */
+
+
+.dices {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.bottom__corner {
+    position: absolute;
+    right: 6%;
+    bottom: 3%;
+}
+
+.top__corner {
+    position: absolute;
+}
+
+.visit {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--fs-1);
+    padding: var(--s-2xs) var(--s-l);
+    border-radius: 3rem;
+    border: 1px solid var(--cream);
+    background-color: var(--coffee);
+    color: var(--cream);
+}
+
+.button__wrapper {
+    display: inline-block;
+    background-color: var(--coffee);
+    /* border: 1px solid var(--accent-gold); */
+    outline: 1px solid var(--coffee);
+    /* Add an outer line */
+    outline-offset: 2px;
+}
+
+.button__position{
+    display: flex;
+    justify-content: center;
+    padding: var(--s-m);
+}
