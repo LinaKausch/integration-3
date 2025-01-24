@@ -192,7 +192,7 @@
         </p>
       </div>
     </section>
-    <section class="interaction">
+    <section class="interaction name__inter">
       <div class="top__corner">
         <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="35%">
       </div>
@@ -201,23 +201,42 @@
       <button class="hint__button">Hint</button>
       <p class="hint">Letters used to be set upside down and mirror view.</p>
       <div class="positioning">
+        <dialog id="choiceDialog" class="congrats__msg">
+          <div class="popup__content">
+            <p class="highlight__name message">Well done!</p>
+            <p class="result narrow">Now you are proffessional LETTER SETTER!</p>
+            <svg class="popup__close-two" width="53" height="53" viewBox="0 0 53 53" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_126_683)">
+                <path class="svg__color"
+                  d="M44.5783 44.5783C24.2712 18.7725 28.7288 18.7725 8.42168 44.5783C34.2275 24.2712 34.2275 28.7288 8.42168 8.42168C28.7288 34.2275 24.2712 34.2275 44.5783 8.42168C18.7725 28.7288 18.7725 24.2712 44.5783 44.5783Z"
+                  fill="#ECE7E3" />
+              </g>
+              <defs>
+                <clipPath id="clip0_126_683">
+                  <rect width="53" height="53" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+        </dialog>
         <div class="metal__letters">
-          <img class="letter" src="./src/assets/svg/letter-a.svg" alt="letter a">
-          <img class="letter" src="./src/assets/svg/letter-i.svg" alt="letter a">
-          <img class="letter" src="./src/assets/svg/letter-l.svg" alt="letter a">
-          <img class="letter" src="./src/assets/svg/letter-n.svg" alt="letter a">
-          <img class="letter" src="./src/assets/svg/letter-n.svg" alt="letter a">
-          <img class="letter" src="./src/assets/svg/letter-p.svg" alt="letter a">
-          <img class="letter" src="./src/assets/svg/letter-t.svg" alt="letter a">
+          <img class="letter" data-holder="letter-a" src="./src/assets/svg/letter-a.svg" alt="letter a">
+          <img class="letter" data-holder="letter-i" src="./src/assets/svg/letter-i.svg" alt="letter a">
+          <img class="letter" data-holder="letter-l" src="./src/assets/svg/letter-l.svg" alt="letter a">
+          <img class="letter" data-holder="letter-n1" src="./src/assets/svg/letter-n.svg" alt="letter a">
+          <img class="letter" data-holder="letter-n2" src="./src/assets/svg/letter-n.svg" alt="letter a">
+          <img class="letter" data-holder="letter-p" src="./src/assets/svg/letter-p.svg" alt="letter a">
+          <img class="letter" data-holder="letter-t" src="./src/assets/svg/letter-t.svg" alt="letter a">
         </div>
         <div class="holders">
-          <div class="holder"></div>
-          <div class="holder"></div>
-          <div class="holder"></div>
-          <div class="holder"></div>
-          <div class="holder"></div>
-          <div class="holder"></div>
-          <div class="holder"></div>
+          <div class="holder" data-holder="letter-n2"></div>
+          <div class="holder" data-holder="letter-i"></div>
+          <div class="holder" data-holder="letter-t"></div>
+          <div class="holder" data-holder="letter-n1"></div>
+          <div class="holder" data-holder="letter-a"></div>
+          <div class="holder" data-holder="letter-l"></div>
+          <div class="holder" data-holder="letter-p"></div>
         </div>
       </div>
       <p class="instructions">Tap to rotate the letter,<br>drag and drop to set it</p>

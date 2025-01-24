@@ -625,6 +625,7 @@ input {
 
 .printing__stars {
     position: relative;
+    overflow: hidden;
 }
 
 .bckgrnd {
