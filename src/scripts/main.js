@@ -14,6 +14,8 @@ const diceSides = [
     { image: dice6, number: 6 },
 ];
 
+
+
 document.documentElement.classList.add('js-enabled');
 const $hamburger = document.querySelector('.hamburger');
 const $navMenu = document.querySelector('.nav__menu');
@@ -22,14 +24,20 @@ const $dialog = document.getElementById('choiceDialog');
 const $closeButton = document.querySelector('.popup__close');
 const $closeButtonTwo = document.querySelector('.popup__close-two')
 const $congratMsg = document.querySelector('.congrats__msg');
-const $message = $dialog.querySelector('.message');
-const $result = $dialog.querySelector('.result');
-const $lettersContainer = document.querySelector('.metal__letters');
+const $message = document.querySelector('.message');
+const $answMsg = document.querySelector('.answ__msg')
+const $result = document.querySelector('.result');
 const $letters = Array.from(document.querySelectorAll('.letter'));
-const $holders = document.querySelectorAll('.holder');
-const $hintButton = document.querySelector('.hint__button');
+const $hintButtons = document.querySelectorAll('.hint__button');
 const $hints = document.querySelectorAll('.hint');
 const $dices = document.querySelector('.dices');
+const $numberForm = document.getElementById('numberForm');
+const $numberInput = document.getElementById('singleDigit');
+const $choiceDialog = document.getElementById('numberDialog');
+const $closeButtonThree = document.querySelector('.popup__close-three');
+
+const correctAnswer = 5;
+
 
 let draggedLetter = null;
 let letterClone = null;
@@ -170,11 +178,6 @@ const addListeners = () => {
     });
 }
 
-const loseButton = () => {
-    $closeButtonTwo.addEventListener('click', () => {
-        $congratMsg.close();
-    });
-}
 
 const checkCompletion = () => {
     const holders = document.querySelectorAll('.holder');
@@ -196,16 +199,12 @@ const checkCompletion = () => {
     });
 }
 
-const showHints = () => {
-    $hints.forEach((hint) => {
-        hint.classList.remove('hidden');
-    });
+const showHint = (index) => {
+    $hints[index].classList.remove('hidden');
 };
 
-const hideHints = () => {
-    $hints.forEach((hint) => {
-        hint.classList.add('hidden');
-    });
+const hideHint = (index) => {
+    $hints[index].classList.add('hidden');
 };
 
 const clickableChoice = () => {
@@ -232,12 +231,12 @@ const clickableChoice = () => {
 };
 
 const rollDiceWithAnimation = () => {
-    let intervalId; 
+    let intervalId;
 
     const getRandomDiceSide = () => diceSides[Math.floor(Math.random() * diceSides.length)].image;
 
-    let animationDuration = 2000; 
-    let animationInterval = 100; 
+    let animationDuration = 2000;
+    let animationInterval = 100;
 
     intervalId = setInterval(() => {
         $dices.innerHTML = `
@@ -248,9 +247,9 @@ const rollDiceWithAnimation = () => {
 
 
     setTimeout(() => {
-        clearInterval(intervalId); 
+        clearInterval(intervalId);
 
-       rollDice();
+        rollDice();
     }, animationDuration);
 }
 
@@ -271,6 +270,24 @@ const rollDice = () => {
     }
 }
 
+const handleFormSubmit = (event) => {
+    event.preventDefault();
+    const userAnswer = parseInt($numberInput.value); 
+
+    if (userAnswer === correctAnswer) {
+        console.log('Correct answer!');
+        updateDialogMessage('Well done!'); 
+        $choiceDialog.showModal(); 
+    } else {
+        console.log('Incorrect answer. Try again.');
+        updateDialogMessage('Oh no!');
+        $choiceDialog.showModal(); 
+    }
+}
+
+const updateDialogMessage = (message) => {
+    $answMsg.textContent = message;
+};
 
 const hamburgerMenu = () => {
     $hamburger.addEventListener('click', () => {
@@ -281,10 +298,27 @@ const hamburgerMenu = () => {
 }
 
 const toggleHint = () => {
-    $hintButton.addEventListener('mousedown', showHints);
-    $hintButton.addEventListener('touchstart', showHints);
-    $hintButton.addEventListener('mouseup', hideHints);
-    $hintButton.addEventListener('touchend', hideHints);
+    $hintButtons.forEach((button, index) => {
+        button.addEventListener('mousedown', () => showHint(index));
+        button.addEventListener('touchstart', () => showHint(index));
+        button.addEventListener('mouseup', () => hideHint(index));
+        button.addEventListener('touchend', () => hideHint(index));
+
+        button.addEventListener('click', (e) => e.preventDefault());
+    });
+};
+
+const diceListeners = () => {
+    // window.addEventListener('shake', () => {
+    //     console.log('Device shaken! 🎲');
+    //     rollDiceWithAnimation();
+    // });
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Space') {
+            e.preventDefault();
+            rollDiceWithAnimation();
+        }
+    });
 }
 
 const init = () => {
@@ -293,11 +327,10 @@ const init = () => {
     letters();
     addListeners();
     toggleHint();
-    document.addEventListener('keydown', (e) => {
-        if (e.code === 'Space') {
-            e.preventDefault();
-            rollDiceWithAnimation();
-        }
+    diceListeners();
+    $numberForm.addEventListener('submit', handleFormSubmit);
+    $closeButtonThree.addEventListener('click', () => {
+        $choiceDialog.close();
     });
 }
 

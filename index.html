@@ -116,7 +116,8 @@
           <p class="highlight__name message"></p>
           <p class="result"></p>
           <!-- <button id="closeDialog" class="popup__close">Close</button> -->
-          <svg id="closeDialog" class="popup__close" width="53" height="53" viewBox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg id="closeDialog" class="popup__close" width="53" height="53" viewBox="0 0 53 53" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_126_683)">
               <path class="svg__color"
                 d="M44.5783 44.5783C24.2712 18.7725 28.7288 18.7725 8.42168 44.5783C34.2275 24.2712 34.2275 28.7288 8.42168 8.42168C28.7288 34.2275 24.2712 34.2275 44.5783 8.42168C18.7725 28.7288 18.7725 24.2712 44.5783 44.5783Z"
@@ -277,7 +278,7 @@
         innovation.</p>
     </section>
     <hr>
-    <section class="interaction languages-inter">
+    <section class="interaction languages__inter">
       <div class="top__corner">
         <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="35%">
       </div>
@@ -285,6 +286,32 @@
       <p class="interaction__title">Guess in how many languages Polyglot bible was written?</p>
       <button class="hint__button">Hint</button>
       <p class="hint hidden">One digit</p>
+      <dialog id="numberDialog">
+        <div class="popup__content">
+          <p class="highlight__name answ__msg"></p>
+          <p class="result">Polyglot bible was written in 5 languages:</p>
+          <ul class="result">
+            <li>Latin</li>
+            <li>Greek</li>
+            <li>Hebrew</li>
+            <li>Aramaic</li>
+            <li>Syriac</li>
+          </ul>
+          <svg class="popup__close-three" width="53" height="53" viewBox="0 0 53 53" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_126_683)">
+              <path class="svg__color"
+                d="M44.5783 44.5783C24.2712 18.7725 28.7288 18.7725 8.42168 44.5783C34.2275 24.2712 34.2275 28.7288 8.42168 8.42168C28.7288 34.2275 24.2712 34.2275 44.5783 8.42168C18.7725 28.7288 18.7725 24.2712 44.5783 44.5783Z"
+                fill="#ECE7E3" />
+            </g>
+            <defs>
+              <clipPath id="clip0_126_683">
+                <rect width="53" height="53" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+      </dialog>
       <form class="languages" id="numberForm">
         <label for="singleDigit"></label>
         <input type="number" id="singleDigit" name="singleDigit" min="1" max="9" required>
@@ -456,13 +483,16 @@
     <section class="printing__stars">
       <img class="starline-two" src="./src/assets/svg/starline-two.svg">
       <h3>Printing the stars</h3>
-      <p class=" bckgrnd star__para__one"><strong>Astrology</strong> was another prints that the Catholic Church <strong>disapproved</strong>. Despite
+      <p class=" bckgrnd star__para__one"><strong>Astrology</strong> was another prints that the Catholic Church
+        <strong>disapproved</strong>. Despite
         this, Plantin <strong>saw an opportunity</strong> and printed
         astrological books and calendars. These publications were <strong>highly profitable</strong>, but they also put
         him at risk with
         religious authorities.</p>
-      <p class="bckgrnd divine__will centered gold">The Church believed astrology interfered with faith and divine will,</p>
-      <p class="bckgrnd star__para__two">many religious leaders accused astrologers and their publishers of <strong>misleading people</strong>. If
+      <p class="bckgrnd divine__will centered gold">The Church believed astrology interfered with faith and divine will,
+      </p>
+      <p class="bckgrnd star__para__two">many religious leaders accused astrologers and their publishers of
+        <strong>misleading people</strong>. If
         caught, Plantin could have lost
         important Catholic customers. However, he continued because he knew these books sold well, helping to
         <strong>keep his business
