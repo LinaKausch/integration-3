@@ -111,8 +111,27 @@
       <h3 class="hidden">Interaction</h3>
       <p class="interaction__title">If you would be a printer <br> what would you choose?</p>
       <p class="instructions">Let's say you have limited time to print.</p>
+      <dialog id="choiceDialog">
+        <div class="popup__content">
+          <p class="highlight__name message"></p>
+          <p class="result"></p>
+          <!-- <button id="closeDialog" class="popup__close">Close</button> -->
+          <svg id="closeDialog" class="popup__close" width="53" height="53" viewBox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_126_683)">
+              <path class="svg__color"
+                d="M44.5783 44.5783C24.2712 18.7725 28.7288 18.7725 8.42168 44.5783C34.2275 24.2712 34.2275 28.7288 8.42168 8.42168C28.7288 34.2275 24.2712 34.2275 44.5783 8.42168C18.7725 28.7288 18.7725 24.2712 44.5783 44.5783Z"
+                fill="#ECE7E3" />
+            </g>
+            <defs>
+              <clipPath id="clip0_126_683">
+                <rect width="53" height="53" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+      </dialog>
       <div class="book__choices">
-        <div class="interaction__choice">
+        <div class="multiple__books interaction__choice">
           <picture>
             <img
               sizes="(min-width: 1400px) 450px, (min-width: 680px) calc(49.57vw - 18px), (min-width: 380px) calc(54.64vw - 52px), 133px"
@@ -125,7 +144,7 @@
           </picture>
           <p>Printing 10 books</p>
         </div>
-        <div class="interaction__choice">
+        <div class="one__book interaction__choice">
           <picture>
             <img
               sizes="(min-width: 1400px) 450px, (min-width: 680px) calc(49.57vw - 18px), (min-width: 380px) calc(54.64vw - 52px), 133px"

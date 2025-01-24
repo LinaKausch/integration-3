@@ -562,6 +562,7 @@ input {
     padding: var(--s-xl) var(--s-m);
     position: relative;
     z-index: 5;
+    overflow: hidden;
 }
 
 .risks h3 {
@@ -633,7 +634,7 @@ input {
 .starline-two {
     position: absolute;
     top: 8%;
-    width:100%;
+    width: 100%;
     z-index: -3;
 }
 
@@ -642,7 +643,7 @@ input {
     margin-bottom: var(--s-5xl);
 }
 
-.star__para__two{
+.star__para__two {
     margin-top: var(--s-5xl);
 }
 
@@ -860,13 +861,13 @@ input {
     margin-top: var(--s-xs);
 }
 
-.right__line__small{
+.right__line__small {
     position: absolute;
-        right: 0;
-        width: 40%;
-        height: 1px;
-        border-top: 1px solid var(--cream);
-        margin-top: var(--s-l);
+    right: 0;
+    width: 40%;
+    height: 1px;
+    border-top: 1px solid var(--cream);
+    margin-top: var(--s-l);
 }
 
 .visit {
@@ -1016,10 +1017,40 @@ footer {
     outline: 1px solid var(--cream);
 }
 
+dialog {
+    width: 80vw;
+    padding: var(--s-s);
+    border: 1px solid var(--cream);
+    text-align: center;
+    background-color: var(--background);
+    outline-offset: -5px;
+    outline: 1px solid var(--cream);
+}
 
+.message {
+    margin: var(--s-xs) 0;
+    color: var(--accent-darkgold);
+}
 
+.result {
+    color: var(--text-color);
+}
 
+.popup__close {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transform: scale(3);
+    transition: transform 0.3s ease;
+}
 
+.svg__color {
+    fill: var(--accent-darkgold);
+}
+
+.popup__close:hover {
+    transform: scale(3.2);
+}
 
 
 
