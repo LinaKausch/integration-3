@@ -17,7 +17,7 @@
 
 <body>
   <header>
-    <img sizes="(min-width: 840px) 200px, (min-width: 400px) 100px, (min-width: 340px) 80px, calc(-250vw + 900px)"
+    <img sizes="(min-width: 840px) 150px, (min-width: 400px) 100px, (min-width: 340px) 80px, calc(-250vw + 900px)"
       srcset="
     ./src/assets/img/logo-small.avif 150w,
     ./src/assets/img/logo-mid.avif 693w" src="./src/assets/img/logo-mid.avif" alt="Plantin-Moretus museum logo">
@@ -34,7 +34,6 @@
         <li><a href="#office">Officina Plantiniana</a></li>
       </ul>
     </nav>
-
   </header>
   <main>
     <section>
@@ -44,6 +43,7 @@
         <h1> renaissance
           hustler</h1>
         <p class="cta__text">Experience His Legacy</p>
+        <img class="cta" src="./src/assets/svg/arrow.svg" alt="arrow" width="20%">
       </div>
     </section>
     <section class="introduction" id="introduction">
@@ -52,9 +52,18 @@
         <p class="highlight__name gold">Plantin</p>
         <p>was more than just a master printer:</p>
         <ul class="about">
-          <li>Smart businessman</li>
-          <li>Catholic navigating religious conflict</li>
-          <li>Visionary who knew that knowledge was power</li>
+          <div class="about__item">
+            <img src="./src/assets/svg/small-star.svg" alt="small star">
+            <li>Smart businessman</li>
+          </div>
+          <div div class="about__item">
+            <img src="./src/assets/svg/small-star.svg" alt="small star">
+            <li>Catholic navigating religious conflict</li>
+          </div>
+          <div div class="about__item">
+            <img src="./src/assets/svg/small-star.svg" alt="small star">
+            <li>Visionary who knew that knowledge was power</li>
+          </div>
         </ul>
       </div>
       <p class="centered narrow">During the <strong>Renaissance</strong>, a time of great progress in art, science, and
@@ -69,12 +78,14 @@
           <p><strong class="special__strong gold">France</strong></p>
           <p>later based in</p>
         </div>
+
       </div>
-      <div>
-        <p>map</p>
+      <div class="antwerp__based">
+        <img src="./src/assets/svg/dashed-line.svg" alt="path">
+        <img class="map" src="./src/assets/svg/map.svg" alt="silhouette of Antwerp" width="70%">
         <p class="antwerp">Antwerp</p>
       </div>
-      <div>
+      <div class="about__text">
         <p>He lived through the <strong>Protestant Reformation</strong>, a time of religious conflict between Catholics
           and Protestants, when
           censorship was common. Despite these challenges, he built a <strong>successful printing empire</strong> and
@@ -85,19 +96,21 @@
           <strong>craftsmanship</strong>.
         </p>
       </div>
-      <div>
-        <p class="officiana narrow__left gold">Officina
+      <div class="officiana">
+        <p class="officiana__text narrow__left gold">Officina
           Plantiniana</p>
-        <p>map image</p>
+        <p class="about__oficina">Printing house founded in Antwerp in 1555</p>
+        <img class="transition__map" src="./src/assets/svg/map-two.svg" alt="silhouette of Antwerp" width="65%">
+        <img class="house__image" src="./src/assets/svg/printing-house.svg" alt="printing house" width="50px">
       </div>
     </section>
     <section class="interaction">
       <div class="top__corner">
-        <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="35%">
+        <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="100px">
       </div>
       <h3 class="hidden">Interaction</h3>
       <p class="interaction__title">If you would be a printer <br> what would you choose?</p>
-      <p class="hint"><strong class="hint">Hint</strong>: <br>You have limited time to print</p>
+      <p class="instructions">Let's say you have limited time to print.</p>
       <div class="book__choices">
         <div class="interaction__choice">
           <picture>
@@ -144,11 +157,11 @@
       <p>Many printers rushed to <strong>produce large quantities</strong>, Plantin focused on <strong>quality</strong>,
         ensuring that his books stood out in an
         increasingly competitive market.</p>
-      <p>image</p>
-      <p class="narrower">Printing a perfect book was
+      <p class="careful__process narrower">Printing a perfect book was
         <br>a <strong>careful process</strong>.
       </p>
-      <p>Each letter had to be set by hand, inked carefully, and pressed onto paper with absolute precision.
+      <p class="no__padding">Each letter had to be set by hand, inked carefully, and pressed onto paper with absolute
+        precision.
 
       <p>A <strong>single mistake</strong> could mean redoing an entire page, wasting time and expensive materials.</p>
       <div class="reputation">
@@ -166,7 +179,29 @@
       </div>
       <h3 class="hidden">Interaction</h3>
       <p class="interaction__title">Set letters for printing<br>Plantin’s name</p>
-      <p class="hint"><strong class="hint">Hint</strong>: <br>Letters used to be set upside down and mirror view.</p>
+      <button class="hint__button">Hint</button>
+      <p class="hint">Letters used to be set upside down and mirror view.</p>
+      <div class="positioning">
+        <div class="metal__letters">
+          <img class="letter" src="./src/assets/svg/letter-a.svg" alt="letter a">
+          <img class="letter" src="./src/assets/svg/letter-i.svg" alt="letter a">
+          <img class="letter" src="./src/assets/svg/letter-l.svg" alt="letter a">
+          <img class="letter" src="./src/assets/svg/letter-n.svg" alt="letter a">
+          <img class="letter" src="./src/assets/svg/letter-n.svg" alt="letter a">
+          <img class="letter" src="./src/assets/svg/letter-p.svg" alt="letter a">
+          <img class="letter" src="./src/assets/svg/letter-t.svg" alt="letter a">
+        </div>
+        <div class="holders">
+          <div class="holder"></div>
+          <div class="holder"></div>
+          <div class="holder"></div>
+          <div class="holder"></div>
+          <div class="holder"></div>
+          <div class="holder"></div>
+          <div class="holder"></div>
+        </div>
+      </div>
+      <p class="instructions">Tap to rotate the letter,<br>drag and drop to set it</p>
       <div class="bottom__corner">
         <img src="./src/assets/svg/right-bot-corner.png" alt="corner decoration" width="100">
       </div>
@@ -175,22 +210,9 @@
       <div class="standards__intro">
         <h3>High standards</h3>
         <p>To maintain his high standards, Plantin hired the most skilled typesetters and invested in the best
-          materials:
+          materials like fine paper, durable ink and high-quality metal typefaces.
         </p>
-      </div>
-      <div class="materials">
-        <div class="material typefaces">
-          <p>High-quality metal typefaces</p>
-          <p>image</p>
-        </div>
-        <div class="material paper">
-          <p>Fine paper</p>
-          <p>image</p>
-        </div>
-        <div class="material ink">
-          <p>image</p>
-          <p>Durable ink</p>
-        </div>
+        <img src="./src/assets/svg/letters.svg" class="letters" width="200%">
       </div>
       <div class="respected">
         <div class="center__line"></div>
@@ -203,40 +225,8 @@
         <p class="highlight__name gold">Europe’s most respected printers.</p>
       </div>
     </section>
-    <section>
-      <div class="bibles">
-        <picture class="hide">
-          <img sizes="(min-width: 1520px) 348px, calc(23.58vw - 6px)" srcset="
-              ./src/assets/img/polyglot_250.avif 250w,
-              ./src/assets/img/polyglot_855.avif 855w,
-              ./src/assets/img/polyglot_1630.avif 1630w,
-              ./src/assets/img/polyglot_2100.avif 2100w" src="./src/assets/img/polyglot_2100.avif" alt="Plyglot bible">
-        </picture>
-        <picture>
-          <img sizes="(min-width: 1520px) 348px, calc(23.58vw - 6px)" srcset="
-                      ./src/assets/img/polyglot_250.avif 250w,
-                      ./src/assets/img/polyglot_855.avif 855w,
-                      ./src/assets/img/polyglot_1630.avif 1630w,
-                      ./src/assets/img/polyglot_2100.avif 2100w" src="./src/assets/img/polyglot_2100.avif"
-            alt="Plyglot bible">
-        </picture>
-        <picture>
-          <img sizes="(min-width: 1520px) 348px, calc(23.58vw - 6px)" srcset="
-                      ./src/assets/img/polyglot_250.avif 250w,
-                      ./src/assets/img/polyglot_855.avif 855w,
-                      ./src/assets/img/polyglot_1630.avif 1630w,
-                      ./src/assets/img/polyglot_2100.avif 2100w" src="./src/assets/img/polyglot_2100.avif"
-            alt="Plyglot bible">
-        </picture>
-        <picture class="hide">
-          <img sizes="(min-width: 1520px) 348px, calc(23.58vw - 6px)" srcset="
-                      ./src/assets/img/polyglot_250.avif 250w,
-                      ./src/assets/img/polyglot_855.avif 855w,
-                      ./src/assets/img/polyglot_1630.avif 1630w,
-                      ./src/assets/img/polyglot_2100.avif 2100w" src="./src/assets/img/polyglot_2100.avif"
-            alt="Plyglot bible">
-        </picture>
-      </div>
+    <hr>
+    <section class="polyglot">
       <p class="centered">One of his greatest achievements was</p>
       <h3 class="gold">Polyglot Bible</h3>
       <p class="about__polyglot">A massive project that required the printing of multiple languages on the same page
@@ -248,17 +238,19 @@
         and
         innovation.</p>
     </section>
-    <section class="interaction">
+    <hr>
+    <section class="interaction languages-inter">
       <div class="top__corner">
         <img src="./src/assets/svg/left-top-corner.svg" alt="corner decoration" width="35%">
       </div>
       <h3 class="hidden">Interaction</h3>
       <p class="interaction__title">Guess in how many languages Polyglot bible was written?</p>
-      <p class="hint"><strong class="hint">Hint</strong>: <br>one digit</p>
+      <button class="hint__button">Hint</button>
+      <p class="hint">One digit</p>
       <form class="languages" id="numberForm">
         <label for="singleDigit"></label>
         <input type="number" id="singleDigit" name="singleDigit" min="1" max="9" required>
-        <p class="hint">type in the number</p>
+        <p>type in the number</p>
         <button class="submit__button" type="submit">Check!</button>
       </form>
       <div class="bottom__corner">
@@ -276,7 +268,8 @@
       ./src/assets/img/light_894.avif 894w,
       ./src/assets/img/light_1080.avif 1080w" src="./src/assets/img/light_1080.avif" alt="light">
       </picture>
-      <p>While he presented himself as a <strong>faithful Catholic</strong>, he secretly expanded his business into
+      <p class="hustles__spacing">While he presented himself as a <strong>faithful Catholic</strong>, he secretly
+        expanded his business into
         areas that were risky but
         profitable.</p>
       <p>Governments and the Catholic Church closely <strong>controlled books</strong>, even <strong>banning</strong>
@@ -290,7 +283,8 @@
       </div>
       <h3 class="hidden">Interaction</h3>
       <p class="interaction__title">Choose which ones would be those consequences</p>
-      <p class="hint"><strong class="hint">Hint</strong>: <br>there are only 3 right options</p>
+      <button class="hint__button">Hint</button>
+      <p class="hint">There are only 3 right options</p>
       <div class="choices">
         <div class="consequences__choice">
           <picture>
@@ -349,6 +343,22 @@
     </section>
     <section class="risks">
       <h3>Biggest risks</h3>
+      <picture class="left__press">
+        <img sizes="(min-width: 1520px) 1390px, calc(94.17vw - 23px)" srcset="
+          ./src/assets/img/press_200.avif 200w,
+          ./src/assets/img/press_631.avif 631w,
+          ./src/assets/img/press_939.avif 939w,
+          ./src/assets/img/press_1301.avif 1301w,
+          ./src/assets/img/press_1479.avif 1479w" src="./src/assets/img/press_1479.avif" alt="">
+      </picture>
+      <picture class="right__press">
+        <img sizes="(min-width: 1520px) 1390px, calc(94.17vw - 23px)" srcset="
+    ./src/assets/img/press_200.avif 200w,
+    ./src/assets/img/press_631.avif 631w,
+    ./src/assets/img/press_939.avif 939w,
+    ./src/assets/img/press_1301.avif 1301w,
+    ./src/assets/img/press_1479.avif 1479w" src="./src/assets/img/press_1479.avif" alt="">
+      </picture>
       <p>While other printers <strong>avoided</strong> controversial books, Plantin secretly printed them. His press
         produced <strong>Protestant writings</strong>
         and <strong>banned philosophical works</strong>. He used secret networks to distribute these books to readers
@@ -358,6 +368,7 @@
       <p>These texts were often smuggled across borders, <strong>hidden</strong> among other shipments. Plantin had to
         be <strong>extremely careful</strong>, one
         mistake could mean the end of his business or even his life.</p>
+      <div class="half__line__right"></div>
       <p class="dangerous__description centered">He maintained good relations with Catholic authorities while still
         finding ways to print forbidden books</p>
       <p class="dangerous gold centered">Playing a Dangerous Double Game.</p>
@@ -368,13 +379,13 @@
       </div>
       <h3 class="hidden">Interaction</h3>
       <p class="interaction__title">Would you be able to get away with illegal printing and distribution?</p>
-      <p class="hint">Shake your phone to roll the dice</p>
+      <p class="instructions">Shake your phone to roll the dice</p>
       <div class="dices">
         <img src="./src/assets/svg/dice-dots-2.svg" alt="Dice with 2 dots" width="40%">
         <img src="./src/assets/svg/dice-dots-5.svg" alt="Dice with 5 dots" width="40%">
       </div>
-      <p class="explanation"><strong class="hint">Double number</strong>: You would! <br>
-        <strong class="hint">Otherwise</strong>: You wouldn’t
+      <p class="explanation">Double number: You would! <br>
+        Non-doubles: You wouldn’t!
       </p>
       <div class="bottom__corner">
         <img src="./src/assets/svg/right-bot-corner.png" alt="corner decoration" width="100px">
@@ -400,15 +411,20 @@
         faced exile or financial ruin. His ability to navigate both sides allowed him to thrive in a time of religious
         conflict.</p>
     </section>
+    <div class="right__lines">
+      <div class="right__line"></div>
+      <div class="right__line__small"></div>
+    </div>
     <section class="printing__stars">
+      <img class="starline-two" src="./src/assets/svg/starline-two.svg">
       <h3>Printing the stars</h3>
-      <p><strong>Astrology</strong> was another prints that the Catholic Church <strong>disapproved</strong>. Despite
+      <p class=" bckgrnd star__para__one"><strong>Astrology</strong> was another prints that the Catholic Church <strong>disapproved</strong>. Despite
         this, Plantin <strong>saw an opportunity</strong> and printed
         astrological books and calendars. These publications were <strong>highly profitable</strong>, but they also put
         him at risk with
         religious authorities.</p>
-      <p class="divine__will centered gold">The Church believed astrology interfered with faith and divine will,</p>
-      <p>many religious leaders accused astrologers and their publishers of <strong>misleading people</strong>. If
+      <p class="bckgrnd divine__will centered gold">The Church believed astrology interfered with faith and divine will,</p>
+      <p class="bckgrnd star__para__two">many religious leaders accused astrologers and their publishers of <strong>misleading people</strong>. If
         caught, Plantin could have lost
         important Catholic customers. However, he continued because he knew these books sold well, helping to
         <strong>keep his business
@@ -420,6 +436,7 @@
       </p>
     </section>
     <section class="printing__house" id="office">
+      <div class="center__line"></div>
       <p class="centered">Plantin’s printing house</p>
       <h2>Officina Plantiniana</h2>
       <p class="centered">Becames one of the <strong>most respected</strong> in Europe. He printed religious texts,
