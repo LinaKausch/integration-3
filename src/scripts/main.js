@@ -9,8 +9,10 @@ const $congratMsg = document.querySelector('.congrats__msg');
 const $message = $dialog.querySelector('.message');
 const $result = $dialog.querySelector('.result');
 const $lettersContainer = document.querySelector('.metal__letters');
-const $letters = Array.from($lettersContainer.querySelectorAll('.letter'));
+const $letters = Array.from(document.querySelectorAll('.letter'));
 const $holders = document.querySelectorAll('.holder');
+const $hintButton = document.querySelector('.hint__button');
+const $hints = document.querySelectorAll('.hint');
 
 let draggedLetter = null;
 let letterClone = null;
@@ -18,7 +20,7 @@ let isTouch;
 
 const getRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+}
 
 const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -26,7 +28,7 @@ const shuffleArray = (array) => {
         [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
-};
+}
 
 const letters = () => {
     const shuffledLetters = shuffleArray($letters);
@@ -47,13 +49,13 @@ const handleRotation = (letter) => {
     if (newRotation === 180) {
         enableDragging(letter);
     }
-};
+}
 
 const enableDragging = (letter) => {
     letter.addEventListener('mousedown', grabLetter);
     letter.addEventListener('touchstart', grabLetter);
     letter.addEventListener('dragstart', (e) => e.preventDefault());
-};
+}
 
 
 const grabLetter = (e) => {
@@ -81,7 +83,7 @@ const grabLetter = (e) => {
     document.addEventListener(isTouch ? 'touchend' : 'mouseup', releaseLetter);
 
     e.preventDefault();
-};
+}
 
 const moveLetter = (e) => {
     if (!letterClone) return;
@@ -105,9 +107,6 @@ const releaseLetter = () => {
     if (matchingHolder) {
         const holderRect = matchingHolder.getBoundingClientRect();
         const cloneRect = letterClone.getBoundingClientRect();
-
-        console.log(`Holder Rect:`, holderRect);
-        console.log(`Clone Rect:`, cloneRect);
 
         const tolerance = 5;
         const isDroppedInHolder =
@@ -140,7 +139,7 @@ const releaseLetter = () => {
 
     document.removeEventListener(isTouch ? 'touchmove' : 'mousemove', moveLetter);
     document.removeEventListener(isTouch ? 'touchend' : 'mouseup', releaseLetter);
-};
+}
 
 
 const addListeners = () => {
@@ -151,13 +150,13 @@ const addListeners = () => {
         letter.addEventListener('touchstart', grabLetter);
         letter.addEventListener('dragstart', (e) => e.preventDefault());
     });
-};
+}
 
-const initCloseButton = () => {
-    $closeButton.addEventListener('click', () => {
+const loseButton = () => {
+    $closeButtonTwo.addEventListener('click', () => {
         $congratMsg.close();
     });
-};
+}
 
 const checkCompletion = () => {
     const holders = document.querySelectorAll('.holder');
@@ -166,14 +165,29 @@ const checkCompletion = () => {
     holders.forEach((holder) => {
         const child = holder.querySelector('.letter');
         if (!child || child.dataset.holder !== holder.dataset.holder) {
-            allCorrect = false; // If any holder doesn't have the correct letter
+            allCorrect = false;
         }
     });
 
     if (allCorrect) {
         console.log('All letters set correctly!');
-        $congratMsg.showModal(); // Show the congratulatory dialog
+        $congratMsg.showModal(); 
     }
+    $closeButtonTwo.addEventListener('click', () => {
+        $congratMsg.close();
+    });
+}
+
+const showHints = () => {
+    $hints.forEach((hint) => {
+        hint.classList.remove('hidden'); 
+    });
+};
+
+const hideHints = () => {
+    $hints.forEach((hint) => {
+        hint.classList.add('hidden');
+    });
 };
 
 const clickableChoice = () => {
@@ -208,12 +222,19 @@ const hamburgerMenu = () => {
     });
 }
 
+const toggleHint = ()=>{
+    $hintButton.addEventListener('mousedown', showHints);
+    $hintButton.addEventListener('touchstart', showHints);
+    $hintButton.addEventListener('mouseup', hideHints);
+    $hintButton.addEventListener('touchend', hideHints);
+}
+
 const init = () => {
     hamburgerMenu();
     clickableChoice();
     letters();
     addListeners();
-    initCloseButton();
+    toggleHint();
 }
 
 init();
