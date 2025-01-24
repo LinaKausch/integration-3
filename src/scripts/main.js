@@ -1,3 +1,19 @@
+import dice1 from '../assets/svg/dice-dots-1.svg';
+import dice2 from '../assets/svg/dice-dots-2.svg';
+import dice3 from '../assets/svg/dice-dots-3.svg';
+import dice4 from '../assets/svg/dice-dots-4.svg';
+import dice5 from '../assets/svg/dice-dots-5.svg';
+import dice6 from '../assets/svg/dice-dots-6.svg';
+
+const diceSides = [
+    { image: dice1, number: 1 },
+    { image: dice2, number: 2 },
+    { image: dice3, number: 3 },
+    { image: dice4, number: 4 },
+    { image: dice5, number: 5 },
+    { image: dice6, number: 6 },
+];
+
 document.documentElement.classList.add('js-enabled');
 const $hamburger = document.querySelector('.hamburger');
 const $navMenu = document.querySelector('.nav__menu');
@@ -13,10 +29,12 @@ const $letters = Array.from(document.querySelectorAll('.letter'));
 const $holders = document.querySelectorAll('.holder');
 const $hintButton = document.querySelector('.hint__button');
 const $hints = document.querySelectorAll('.hint');
+const $dices = document.querySelector('.dices');
 
 let draggedLetter = null;
 let letterClone = null;
 let isTouch;
+
 
 const getRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -171,7 +189,7 @@ const checkCompletion = () => {
 
     if (allCorrect) {
         console.log('All letters set correctly!');
-        $congratMsg.showModal(); 
+        $congratMsg.showModal();
     }
     $closeButtonTwo.addEventListener('click', () => {
         $congratMsg.close();
@@ -180,7 +198,7 @@ const checkCompletion = () => {
 
 const showHints = () => {
     $hints.forEach((hint) => {
-        hint.classList.remove('hidden'); 
+        hint.classList.remove('hidden');
     });
 };
 
@@ -213,6 +231,46 @@ const clickableChoice = () => {
     });
 };
 
+const rollDiceWithAnimation = () => {
+    let intervalId; 
+
+    const getRandomDiceSide = () => diceSides[Math.floor(Math.random() * diceSides.length)].image;
+
+    let animationDuration = 2000; 
+    let animationInterval = 100; 
+
+    intervalId = setInterval(() => {
+        $dices.innerHTML = `
+            <img src="${getRandomDiceSide()}" alt="Dice 1" width="40%">
+            <img src="${getRandomDiceSide()}" alt="Dice 2" width="40%">
+        `;
+    }, animationInterval);
+
+
+    setTimeout(() => {
+        clearInterval(intervalId); 
+
+       rollDice();
+    }, animationDuration);
+}
+
+
+const rollDice = () => {
+    const dice1 = diceSides[Math.floor(Math.random() * diceSides.length)];
+    const dice2 = diceSides[Math.floor(Math.random() * diceSides.length)];
+
+    $dices.innerHTML = `
+        <img src="${dice1.image}" alt="Dice 1" width="40%">
+        <img src="${dice2.image}" alt="Dice 2" width="40%">
+    `;
+
+    if (dice1.number === dice2.number) {
+        console.log('You would! 🎉 Doubles!');
+    } else {
+        console.log('You wouldn’t! 😢 Non-doubles.');
+    }
+}
+
 
 const hamburgerMenu = () => {
     $hamburger.addEventListener('click', () => {
@@ -222,7 +280,7 @@ const hamburgerMenu = () => {
     });
 }
 
-const toggleHint = ()=>{
+const toggleHint = () => {
     $hintButton.addEventListener('mousedown', showHints);
     $hintButton.addEventListener('touchstart', showHints);
     $hintButton.addEventListener('mouseup', hideHints);
@@ -235,6 +293,12 @@ const init = () => {
     letters();
     addListeners();
     toggleHint();
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Space') {
+            e.preventDefault();
+            rollDiceWithAnimation();
+        }
+    });
 }
 
 init();
