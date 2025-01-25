@@ -1,9 +1,9 @@
-import dice1 from '../assets/svg/dice-dots-1.svg';
-import dice2 from '../assets/svg/dice-dots-2.svg';
-import dice3 from '../assets/svg/dice-dots-3.svg';
-import dice4 from '../assets/svg/dice-dots-4.svg';
-import dice5 from '../assets/svg/dice-dots-5.svg';
-import dice6 from '../assets/svg/dice-dots-6.svg';
+import dice1 from './../assets/svg/dice-dots-1.svg';
+import dice2 from './../assets/svg/dice-dots-2.svg';
+import dice3 from './../assets/svg/dice-dots-3.svg';
+import dice4 from './../assets/svg/dice-dots-4.svg';
+import dice5 from './../assets/svg/dice-dots-5.svg';
+import dice6 from './../assets/svg/dice-dots-6.svg';
 
 const diceSides = [
     { image: dice1, number: 1 },
