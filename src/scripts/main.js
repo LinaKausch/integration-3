@@ -14,6 +14,15 @@ const diceSides = [
     { image: dice6, number: 6 },
 ];
 
+// const diceSides = [
+//     { image: '../assets/svg/dice-dots-1.svg', number: 1 },
+//     { image: '../assets/svg/dice-dots-2.svg', number: 2 },
+//     { image: '../assets/svg/dice-dots-3.svg', number: 3 },
+//     { image: '../assets/svg/dice-dots-4.svg', number: 4 },
+//     { image: '../assets/svg/dice-dots-5.svg', number: 5 },
+//     { image: '../assets/svg/dice-dots-6.svg', number: 6 },
+// ];
+
 document.documentElement.classList.add('js-enabled');
 const $hamburger = document.querySelector('.hamburger');
 const $navMenu = document.querySelector('.nav__menu');
