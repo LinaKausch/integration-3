@@ -60,7 +60,7 @@ img {
 }
 
 body {
-    max-width: 90rem;
+    min-width: 24rem;
     margin: auto;
     background-color: var(--background);
     color: var(--text-color);
@@ -70,6 +70,7 @@ body {
     font-weight: 400;
     font-style: normal;
     margin: var(--s-m) 0;
+
 }
 
 header,
@@ -85,6 +86,8 @@ li {
 
 p {
     padding-bottom: var(--s-s);
+    max-width: 30rem;
+    margin: 0 auto;
 }
 
 h1 {
@@ -121,6 +124,7 @@ h3 {
     font-size: var(--fs-4);
     text-align: center;
     color: var(--accent-darkgold);
+    margin: 0 auto;
 }
 
 strong {
@@ -161,6 +165,7 @@ strong {
 }
 
 .cta {
+    max-width: 100px;
     display: block;
     margin: 0 auto;
     animation: moveDown 2s ease-in-out infinite;
@@ -364,7 +369,7 @@ a {
 
 .quality h2 {
     text-align: center;
-    padding: var(--s-s);
+    padding: var(--s-m) var(--s-xl);
 }
 
 .quality picture {
@@ -614,7 +619,7 @@ input {
 }
 
 .protestants h3 {
-    padding: 0 var(--s-2xl);
+    padding: var(--s-l) var(--s-2xl);
 }
 
 .printing__stars {
@@ -648,7 +653,6 @@ input {
     padding-bottom: var(--s-l);
     text-align: center;
     white-space: pre-wrap;
-    display: inline-block;
 }
 
 .divine__will {
@@ -746,13 +750,16 @@ input {
     padding-top: var(--s-l);
     padding-bottom: var(--s-4xl);
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+    grid-template-columns: repeat(6, 1fr);
     gap: var(--s-3xs);
+    justify-self: center;
+    max-width: 100%;
+    grid-auto-flow: column;
 }
 
 .holder {
-    min-width: 44px;
-    min-height: 44px;
+    min-width: 48px;
+    aspect-ratio: 1;
     border: 1px dashed var(--background);
 }
 
@@ -771,7 +778,7 @@ input {
 
 .letter {
     width: 40px;
-    height: 40px;
+    aspect-ratio: 1;
 }
 
 .choices {
@@ -844,9 +851,12 @@ input {
 }
 
 .bottom__corner {
+    display: flex;
+    justify-content: end;
     position: absolute;
-    right: 5%;
-    bottom: 3%;
+    left: 42%;
+    bottom: 5%;
+    z-index: 0;
 }
 
 .top__corner {
@@ -921,6 +931,19 @@ footer {
 
 .footer__nav {
     display: flex;
+    justify-content: center;
+}
+
+.footer__nav__sec {
+    padding: 0 var(--s-xs);
+    border-right: 1px solid var(--cream);
+    border-left: 1px solid var(--cream);
+}
+
+.footer__nav li a:hover {
+    color: var(--accent-gold);
+    border-bottom: 1px solid #DBB78B;
+    font-weight: 500;
 }
 
 .footer__logo {
@@ -935,12 +958,33 @@ footer {
     align-items: center;
 }
 
+.social__media p {
+    padding-top: var(--s-xs);
+}
+
+.social__icons {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: -1rem;
+}
+
 .social__icon {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+}
+
+.icon__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .icon {
-    max-width: 60px;
+    max-width: 100%;
+    height: auto;
 }
 
 .nav__menu {
@@ -1092,11 +1136,320 @@ dialog {
     font-style: normal;
 }
 
+.dashed__line-two {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    border: 0;
+}
 
 
+@media only screen and (min-width: 25em) {
+    .about__oficina {
+        padding-right: var(--s-5xl);
+    }
+
+    .about__item {
+        padding-right: var(--s-2xl);
+    }
+
+}
+
+@media only screen and (min-width: 28em) {
+    .about__item {
+        padding-right: var(--s-4xl);
+    }
+
+    .reputation>p:last-child {
+        padding-right: 0;
+    }
+
+    .narrow {
+        padding-left: var(--s-3xs);
+        padding-right: var(--s-3xs);
+    }
+
+    .narrow__left {
+        padding-right: var(--s-3xl);
+    }
+
+    .new-narrow {
+        padding-left: var(--s-s);
+        padding-right: var(--s-s);
+    }
+
+    .divine__will {
+        padding: 0;
+    }
+
+    .new-narrow-left {
+        padding-right: var(--s-m);
+    }
+
+    .protestants {
+        padding-left: var(--s-3xs);
+    }
+
+    .map {
+        bottom: -15%;
+    }
+
+    .holders {
+        gap: var(--s-2xs);
+    }
+}
+
+@media only screen and (min-width: 30em) {
+    .about__item {
+        padding-right: 0;
+    }
+
+    .map {
+        bottom: -20%;
+        max-width: 300px;
+    }
+
+    .dashed__line {
+        display: flex;
+        justify-self: center;
+    }
+
+    .born {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .quality picture {
+        top: 10%;
+        left: -42%;
+    }
+
+    .desk__pos {
+        padding-left: var(--s-5xl);
+        padding-top: var(--s-l);
+    }
+
+    .careful__process {
+        padding: var(--s-xl) 0;
+        text-align: center;
+    }
+
+    .standards__intro p {
+        padding: var(--s-m);
+    }
+
+    .holder {
+        min-width: 55px;
+    }
+
+    .letter {
+        width: 50px;
+    }
+
+    .new-narrow {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .dashed__line {
+        transform: scale(1.1);
+    }
+
+    .interaction__title {
+        font-size: var(--fs-2);
+    }
+
+    .protestants p {
+        padding-left: 0;
+    }
+
+    .starline-two {
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 35em) {
+
+    .desk__pos,
+    .careful__process {
+        padding-left: var(--s-5xl);
+        margin-left: var(--s-xl);
+    }
+
+    .quality picture {
+        top: 7%;
+        left: -45%;
+    }
+
+    .careful__process {
+        text-align: left;
+        padding-top: var(--s-3xs);
+        padding-bottom: var(--s-3xl);
+    }
+
+    .narrow__left {
+        padding-right: var(--s-5xl);
+    }
+
+    .hustles__spacing {
+        padding-top: var(--s-xl);
+    }
+}
+
+@media only screen and (min-width: 40em) {
+
+    .reputation>p:last-child {
+        text-align: center;
+    }
+
+    .desk__pos,
+    .careful__process {
+        padding-left: var(--s-5xl);
+        margin-left: var(--s-3xl);
+    }
+
+    .officiana {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .officiana__text {
+        position: static;
+        text-align: center;
+    }
+
+    .about__oficina {
+        position: absolute;
+        top: 25%;
+        left: 55%;
+        padding-right: var(--s-2xl);
+    }
+
+    .house__image {
+        left: 50%;
+        min-width: 80px;
+    }
+
+    .dashed__line {
+        transform: scale(1.2);
+    }
+
+    .map {
+        left: 30%;
+    }
+
+    .antwerp {
+        padding-top: var(--s-4xl);
+        padding-left: var(--s-2xl);
+    }
+
+    .interaction__choice p {
+        font-size: var(--fs-1);
+    }
+
+    .dashed__line-two {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        z-index: -2;
+        right: 35%;
+        bottom: -87%;
+        transform: scale(0.9);
+    }
+
+    .holder {
+        min-width: 70px;
+    }
+
+    .letter {
+        min-width: 65px;
+    }
+
+    .letters {
+        max-width: 400px;
+        padding-top: var(--s-m);
+    }
+
+    .interaction__title {
+        font-size: var(--fs-3);
+    }
+
+    .intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .standards__intro p {
+        padding: var(--s-s) 0;
+    }
+
+    .consequences__choice {
+        min-width: 200px;
+    }
+
+    .consequences__choice p {
+        font-size: var(--fs-1);
+    }
+
+    .hustles picture {
+        right: -25%;
+        top: 3%;
+    }
+
+    .right__press {
+        right: -50%;
+        top: 2%;
+    }
+
+    .left__press {
+        left: -60%;
+        top: -6%;
+    }
+
+    .starline-two {
+        top: 5%;
+        width: 120%;
+    }
+
+    .small__book {
+        font-family: "EB Garamond", serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-size: var(--fs-1);
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        background-image: url(../assets/img/book-ex-libris.avif);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 0 var(--s-xl);
+        padding-top: var(--s-4xl);
+        padding-bottom: var(--s-xl);
+    }
+
+    .small__book p {
+        max-width: 270px;
+        margin: 0;
+        padding: var(--s-m);
+        padding-bottom: var(--s-5xl);
+        color: var(--background);
+    }
+
+    
+
+}
+
+@media only screen and (min-width: 50em) {}
 
 
-@media (min-width: 950px) {
+@media only screen and (min-width: 60em) {
     .js-enabled .hamburger {
         display: none;
     }
@@ -1115,5 +1468,9 @@ dialog {
         display: flex;
         flex-direction: row;
     }
+
+}
+
+@media only screen and (min-width: 75em) {
 
 }
