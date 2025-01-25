@@ -14,8 +14,6 @@ const diceSides = [
     { image: dice6, number: 6 },
 ];
 
-
-
 document.documentElement.classList.add('js-enabled');
 const $hamburger = document.querySelector('.hamburger');
 const $navMenu = document.querySelector('.nav__menu');
