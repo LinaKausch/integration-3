@@ -1,26 +1,17 @@
-import dice1 from './../assets/svg/dice-dots-1.svg';
-import dice2 from './../assets/svg/dice-dots-2.svg';
-import dice3 from './../assets/svg/dice-dots-3.svg';
-import dice4 from './../assets/svg/dice-dots-4.svg';
-import dice5 from './../assets/svg/dice-dots-5.svg';
-import dice6 from './../assets/svg/dice-dots-6.svg';
-
-const diceSides = [
-    { image: dice1, number: 1 },
-    { image: dice2, number: 2 },
-    { image: dice3, number: 3 },
-    { image: dice4, number: 4 },
-    { image: dice5, number: 5 },
-    { image: dice6, number: 6 },
-];
+// import dice1 from './../assets/svg/dice-dots-1.svg';
+// import dice2 from './../assets/svg/dice-dots-2.svg';
+// import dice3 from './../assets/svg/dice-dots-3.svg';
+// import dice4 from './../assets/svg/dice-dots-4.svg';
+// import dice5 from './../assets/svg/dice-dots-5.svg';
+// import dice6 from './../assets/svg/dice-dots-6.svg';
 
 // const diceSides = [
-//     { image: '../assets/svg/dice-dots-1.svg', number: 1 },
-//     { image: '../assets/svg/dice-dots-2.svg', number: 2 },
-//     { image: '../assets/svg/dice-dots-3.svg', number: 3 },
-//     { image: '../assets/svg/dice-dots-4.svg', number: 4 },
-//     { image: '../assets/svg/dice-dots-5.svg', number: 5 },
-//     { image: '../assets/svg/dice-dots-6.svg', number: 6 },
+//     { image: dice1, number: 1 },
+//     { image: dice2, number: 2 },
+//     { image: dice3, number: 3 },
+//     { image: dice4, number: 4 },
+//     { image: dice5, number: 5 },
+//     { image: dice6, number: 6 },
 // ];
 
 document.documentElement.classList.add('js-enabled');
@@ -43,14 +34,17 @@ const $numberInput = document.getElementById('singleDigit');
 const $choiceDialog = document.getElementById('numberDialog');
 const $closeButtonThree = document.querySelector('.popup__close-three');
 const $diceInstructions = document.querySelector('.dice__instru');
+const $conChoices = document.querySelectorAll('.consequences__choice');
+const $checkBtn = document.querySelector('.check');
+const $feedback = document.querySelector('.feedback');
 
 const correctAnswer = 5;
-
-
+const correctChoices = ['death', 'heavy fines', 'prison'];
 let draggedLetter = null;
 let letterClone = null;
 let isTouch;
 let lastTap = 0;
+let selectedChoices = [];
 
 
 const getRandomNumber = (min, max) => {
@@ -309,11 +303,9 @@ const handleFormSubmit = (event) => {
     const userAnswer = parseInt($numberInput.value);
 
     if (userAnswer === correctAnswer) {
-        console.log('Correct answer!');
         updateDialogMessage('Well done!');
         $choiceDialog.showModal();
     } else {
-        console.log('Incorrect answer. Try again.');
         updateDialogMessage('Oh no!');
         $choiceDialog.showModal();
     }
@@ -322,6 +314,58 @@ const handleFormSubmit = (event) => {
 const updateDialogMessage = (message) => {
     $answMsg.textContent = message;
 };
+
+const handleChoice = () => {
+    $conChoices.forEach((choice) => {
+        choice.addEventListener('click', () => {
+            const choiceIndex = selectedChoices.indexOf(choice);
+
+            if (choiceIndex !== -1) {
+                selectedChoices.splice(choiceIndex, 1);
+                choice.style.opacity = '1';
+            } else {
+                if (selectedChoices.length < 3) {
+                    selectedChoices.push(choice); 
+                    choice.style.opacity = '0.5';
+                } else {
+                    $feedback.textContent = 'You can only select 3 consequences.';
+                }
+            }
+
+            if (selectedChoices.length === 3) {
+                $checkBtn.classList.remove('hidden');
+                $feedback.textContent = '';
+            } else {
+                $checkBtn.classList.add('hidden');
+            }
+        });
+    });
+};
+
+const handleCheck = () => {
+    if (selectedChoices.length === 3) {
+        const selectedIds = selectedChoices.map((choice) =>
+            choice.querySelector('p').textContent.trim().toLowerCase()
+        );
+        const isCorrect = correctChoices.every((answer) => selectedIds.includes(answer));
+
+        if (isCorrect) {
+            $feedback.textContent = 'You are RIGHT!';
+            $feedback.classList.add('feedback__right');
+        } else {
+            $feedback.textContent = 'Right answers: Prison, Heavy fines, Death'; 
+            $feedback.classList.remove('feedback__right');
+        }
+    } else {
+        $feedback.textContent = 'Please select exactly 3 consequences.';
+    }
+};
+
+const consequencesIntr = () => {
+    $checkBtn.classList.add('hidden');
+    handleChoice();
+    $checkBtn.addEventListener('click', handleCheck);
+}
 
 const hamburgerMenu = () => {
     $hamburger.addEventListener('click', () => {
@@ -348,7 +392,12 @@ const diceListeners = () => {
             e.preventDefault();
             rollDiceWithAnimation();
         }
-    });
+    })
+}
+
+const diceActions = () => {
+    diceListeners();
+    $dices.addEventListener('touchstart', handleDoubleTap);
 }
 
 const init = () => {
@@ -357,14 +406,13 @@ const init = () => {
     letters();
     addListeners();
     toggleHint();
-    diceListeners();
+    consequencesIntr();
+    // diceActions();
     $numberForm.addEventListener('submit', handleFormSubmit);
     $closeButtonThree.addEventListener('click', () => {
         $choiceDialog.close();
     });
-
-    $dices.addEventListener('touchstart', handleDoubleTap);
- diceDevice();
+    diceDevice();
 }
 
 init();

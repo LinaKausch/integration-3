@@ -512,7 +512,8 @@ input {
     border: 1px dashed var(--background);
 }
 
-.submit__button {
+.submit__button,
+.check {
     text-align: center;
     font-family: "Cinzel", serif;
     font-weight: 600;
@@ -810,7 +811,7 @@ input {
 .consequences__choice picture {
     width: 100%;
     height: auto;
-    display: block;
+    /* display: block; */
 }
 
 .consequences__choice picture img {
@@ -829,18 +830,6 @@ input {
 .bibles picture {
     margin: -1rem;
 }
-
-/* .hide{
-    position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
-} */
-
 
 .dices {
     display: flex;
@@ -1069,18 +1058,39 @@ dialog {
     transform: scale(3.2);
 }
 
-.explain__style{
+.explain__style {
     font-family: "Cinzel", serif;
-        font-weight: 600;
-        font-style: normal;
-        padding:var(--s-2xs);
-        font-size: var(--fs-2);
-        border-radius: 3rem;
-        border: 1px solid var(--accent-darkgold);
-        background-color: var(--coffee);
-        color: var(--cream);
+    font-weight: 600;
+    font-style: normal;
+    padding: var(--s-2xs);
+    font-size: var(--fs-2);
+    border-radius: 3rem;
+    border: 1px solid var(--accent-darkgold);
+    background-color: var(--coffee);
+    color: var(--cream);
+    text-align: center;
 }
 
+.check {
+    display: flex;
+    /* Default state */
+    justify-content: center;
+    margin: var(--s-s) 0;
+}
+
+.feedback {
+    padding: var(--s-2xs);
+    font-size: var(--fs-1);
+    border-radius: 3rem;
+    color: var(--coffee);
+    text-align: center;
+}
+
+.feedback__right {
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    font-style: normal;
+}
 
 
 
