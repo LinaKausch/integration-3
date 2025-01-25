@@ -35,6 +35,7 @@ const $numberForm = document.getElementById('numberForm');
 const $numberInput = document.getElementById('singleDigit');
 const $choiceDialog = document.getElementById('numberDialog');
 const $closeButtonThree = document.querySelector('.popup__close-three');
+const $diceInstructions = document.querySelector('.dice__instru');
 
 const correctAnswer = 5;
 
@@ -42,6 +43,7 @@ const correctAnswer = 5;
 let draggedLetter = null;
 let letterClone = null;
 let isTouch;
+let lastTap = 0;
 
 
 const getRandomNumber = (min, max) => {
@@ -223,12 +225,32 @@ const clickableChoice = () => {
             $message.textContent = message;
             $result.textContent = result;
             $dialog.showModal();
-        });
-    });
+        })
+    })
     $closeButton.addEventListener('click', () => {
         $dialog.close();
-    });
-};
+    })
+}
+
+const diceDevice = () => {
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) {
+        $diceInstructions.textContent = 'Double tap to roll the dice!';
+    } else {
+        $diceInstructions.textContent = 'Press SPACE to roll the dice!';
+    }
+}
+
+const handleDoubleTap = (event) => {
+    const currentTime = new Date().getTime();
+    const timeSince = currentTime - lastTap;
+
+    if (timeSince < 300 && timeSince > 0) {
+        rollDiceWithAnimation();
+    }
+
+    lastTap = currentTime;
+}
 
 const rollDiceWithAnimation = () => {
     let intervalId;
@@ -263,25 +285,30 @@ const rollDice = () => {
         <img src="${dice2.image}" alt="Dice 2" width="40%">
     `;
 
+
+    const explanationElement = document.querySelector('.explanation');
+
     if (dice1.number === dice2.number) {
-        console.log('You would! 🎉 Doubles!');
+        explanationElement.textContent = 'You would get away!';
+        explanationElement.classList.add('explain__style');
     } else {
-        console.log('You wouldn’t! 😢 Non-doubles.');
+        explanationElement.textContent = 'You wouldn’t get away!';
+        explanationElement.classList.add('explain__style');
     }
 }
 
 const handleFormSubmit = (event) => {
     event.preventDefault();
-    const userAnswer = parseInt($numberInput.value); 
+    const userAnswer = parseInt($numberInput.value);
 
     if (userAnswer === correctAnswer) {
         console.log('Correct answer!');
-        updateDialogMessage('Well done!'); 
-        $choiceDialog.showModal(); 
+        updateDialogMessage('Well done!');
+        $choiceDialog.showModal();
     } else {
         console.log('Incorrect answer. Try again.');
         updateDialogMessage('Oh no!');
-        $choiceDialog.showModal(); 
+        $choiceDialog.showModal();
     }
 }
 
@@ -309,10 +336,6 @@ const toggleHint = () => {
 };
 
 const diceListeners = () => {
-    // window.addEventListener('shake', () => {
-    //     console.log('Device shaken! 🎲');
-    //     rollDiceWithAnimation();
-    // });
     document.addEventListener('keydown', (e) => {
         if (e.code === 'Space') {
             e.preventDefault();
@@ -332,6 +355,9 @@ const init = () => {
     $closeButtonThree.addEventListener('click', () => {
         $choiceDialog.close();
     });
+
+    $dices.addEventListener('touchstart', handleDoubleTap);
+ diceDevice();
 }
 
 init();

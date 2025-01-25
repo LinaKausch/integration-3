@@ -795,7 +795,6 @@ input {
 
 .choices::-webkit-scrollbar-track {
     background-color: var(--coffee);
-
 }
 
 .consequences__choice {
@@ -851,14 +850,13 @@ input {
 }
 
 .explanation {
-    display: flex;
-    justify-content: center;
     color: var(--background);
+    text-align: center;
 }
 
 .bottom__corner {
     position: absolute;
-    right: 6%;
+    right: 5%;
     bottom: 3%;
 }
 
@@ -1071,7 +1069,17 @@ dialog {
     transform: scale(3.2);
 }
 
-
+.explain__style{
+    font-family: "Cinzel", serif;
+        font-weight: 600;
+        font-style: normal;
+        padding:var(--s-2xs);
+        font-size: var(--fs-2);
+        border-radius: 3rem;
+        border: 1px solid var(--accent-darkgold);
+        background-color: var(--coffee);
+        color: var(--cream);
+}
 
 
 
