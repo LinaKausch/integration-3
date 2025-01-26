@@ -86,7 +86,7 @@ li {
 
 p {
     padding-bottom: var(--s-s);
-    max-width: 30rem;
+    max-width: 32rem;
     margin: 0 auto;
 }
 
@@ -418,10 +418,11 @@ a {
 }
 
 .high__standards {
-    padding: var(--s-3xl) var(--s-m);
+    padding: var(--s-s) var(--s-m);
 }
 
 .standards__intro {
+    padding-top: var(--s-3xl);
     text-align: center;
 }
 
@@ -481,6 +482,7 @@ hr::after {
 
 .polyglot {
     padding-top: var(--s-xl);
+    padding-bottom: var(--s-xl);
 }
 
 .polyglot h3 {
@@ -665,6 +667,10 @@ input {
 
 .printing__house {
     padding: var(--s-xl) var(--s-m);
+}
+
+.printing__house h2 {
+    padding-bottom: var(--s-m);
 }
 
 .today__line {
@@ -854,13 +860,15 @@ input {
     display: flex;
     justify-content: end;
     position: absolute;
-    left: 42%;
+    right: 5%;
     bottom: 5%;
     z-index: 0;
 }
 
 .top__corner {
     position: absolute;
+    top: 5%;
+    left: 5%;
 }
 
 .right__lines {
@@ -1394,6 +1402,7 @@ dialog {
 
     .consequences__choice p {
         font-size: var(--fs-1);
+        text-wrap: nowrap;
     }
 
     .hustles picture {
@@ -1442,14 +1451,179 @@ dialog {
         color: var(--background);
     }
 
-    
-
+    .languages__inter {
+        background-size: 65%;
+    }
 }
 
-@media only screen and (min-width: 50em) {}
+@media only screen and (min-width: 50em) {
+    .introduction {
+        border-left: 1px solid var(--cream);
+        border-right: 1px solid var(--cream);
+        margin: 0 var(--s-s);
+    }
 
+    .narrow__left {
+        padding-right: 0;
+    }
 
-@media only screen and (min-width: 60em) {
+    .dashed__line-two {
+        right: 30%;
+    }
+
+    .top__corner {
+        transform: scale(1.2);
+        top: 5%;
+        left: 7%;
+    }
+
+    .bottom__corner {
+        transform: scale(1.2);
+        bottom: 5%;
+        right: 7%;
+    }
+
+    .interaction__choice picture {
+        max-width: 340px;
+        justify-content: center;
+    }
+
+    .interaction__choice p {
+        padding: var(--s-2xs) var(--s-xs);
+    }
+
+    .narrower {
+        padding: 0;
+    }
+
+    .book__choices {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .careful__process {
+        margin: 0 auto;
+        padding-bottom: var(--s-s);
+    }
+
+    .desk__pos {
+        padding: 0;
+        margin: 0 auto;
+        padding-top: var(--s-l);
+    }
+
+    .quality>p {
+        margin-right: 0;
+        padding-left: var(--s-5xl);
+        max-width: 640px;
+    }
+
+    .quality picture {
+        top: 1%;
+        max-width: 975px;
+    }
+
+    .reputation {
+        padding-top: var(--s-xl);
+    }
+
+    .holders {
+        gap: var(--s-s);
+    }
+
+    .one__risks {
+        margin-top: var(--s-xl);
+    }
+
+    .right__press {
+        top: -8%
+    }
+
+    .dangerous__description {
+        margin-top: var(--s-l);
+    }
+
+    .half__line__right {
+        margin: var(--s-2xl);
+    }
+
+    .small__book {
+        gap: var(--s-xl);
+    }
+
+    .starline-two {
+        display: none;
+    }
+
+    .printing__stars {
+        background-image: url(../assets/svg/starline.svg);
+        background-position: center 45%;
+        background-size: contain;
+    }
+
+    .star__para__two {
+        margin-top: var(--s-3xl);
+    }
+
+    .social__media {
+        max-width: 45rem;
+        margin: 0 auto;
+    }
+
+    .standards__intro {
+        border-left: 1px solid var(--cream);
+        border-right: 1px solid var(--cream);
+    }
+
+    .desktop__line-left {
+        position: absolute;
+        left: 0;
+        margin-top: -2rem;
+        width: 30%;
+        height: 1px;
+        border-top: 1px solid var(--cream);
+    }
+
+    .desktop__line-right {
+        position: absolute;
+        right: 0;
+        width: 30%;
+        height: 1px;
+        border-top: 1px solid var(--cream);
+        margin-top: -2rem;
+    }
+
+    .quality,
+    .interaction,
+    .introduction,
+    .high__standards,
+    .polyglot,
+    .hustles,
+    .risks,
+    .protestants,
+    .printing__house,
+    .museum,
+    footer,
+    section {
+        padding-left: var(--s-xl);
+        padding-right: var(--s-xl);
+        overflow: hidden;
+    }
+
+    .hustles picture {
+        left: 70%;
+        top: 20%;
+        transform: scale(1.4);
+
+    }
+
+    .hustles h2+p {
+        text-align: center;
+        max-width: 20rem;
+    }
+}
+
+@media only screen and (min-width: 55em) {
     .js-enabled .hamburger {
         display: none;
     }
@@ -1469,8 +1643,224 @@ dialog {
         flex-direction: row;
     }
 
+    .nav__menu__list li {
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width: 60em) {
+    .nav__menu__list li {
+        padding: var(--s-2xs);
+    }
+
+    .dashed__line-two {
+        transform: scale(-1.5);
+        right: -20%;
+        top: 120%;
+    }
+
+    .about__text p {
+        margin: 0;
+    }
+
+    .officiana {
+        padding-top: var(--s-5xl);
+    }
+
+    .about__oficina {
+        max-width: 18rem;
+    }
+
+    .quality picture {
+        top: -8%;
+        left: -40%;
+        z-index: 1;
+        max-width: 975px;
+    }
+
+    .holder {
+        min-width: 90px;
+    }
+
+    .letter {
+        min-width: 85px;
+    }
+
+    .hustles p:nth-last-of-type(2),
+    .hustles p:nth-last-of-type(1) {
+        margin-left: 0;
+    }
+
+    .interaction__title {
+        max-width: 40rem;
+    }
+
+    .small__book {
+        background: none;
+        display: block;
+        padding: 0;
+    }
+
+    .desktop__book {
+        background-image: url(../assets/img/book-ex-libris.avif);
+        font-family: "EB Garamond", serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        font-size: var(--fs-1);
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 0 var(--s-xl);
+        padding-top: var(--s-4xl);
+        padding-bottom: var(--s-4xl);
+        padding-left: var(--s-3xl);
+        color: var(--background);
+        margin: -2rem;
+    }
+
+    .desktop__book div p {
+        padding: 0;
+        max-width: 400px;
+    }
+
+    .desktop__book div {
+        padding: 0 var(--s-l);
+        padding-top: var(--s-s);
+        padding-bottom: var(--s-5xl);
+    }
+
+    .printing__stars {
+        background-position: 50% 70%;
+    }
+
+    .printing__stars p {
+        margin-left: 0;
+        padding-left: var(--s-l);
+    }
+
+    .divine__will {
+        text-align: left;
+        margin-top: var(--s-4xl);
+    }
+
+    .star__para__two {
+        margin-top: var(--s-s);
+    }
+
+    footer p {
+        margin: 0;
+    }
+
+    .antwerp__based {
+        background-image: url(../assets/svg/stars.svg);
+        background-size: 70%;
+        background-repeat: repeat-x;
+        background-position: center 23%;
+    }
+
 }
 
 @media only screen and (min-width: 75em) {
+    p {
+        max-width: 41rem;
+    }
 
+    .quality>p {
+        margin-right: 0;
+        padding-left: var(--s-4xl);
+        padding-right: var(--s-xl);
+        max-width: 700px;
+    }
+
+    .quality picture {
+        top: -10%;
+        left: -35%;
+    }
+
+    .reputation {
+        padding-top: var(--s-4xl);
+    }
+
+    .standards__intro p {
+        max-width: 42rem;
+    }
+
+    .right__press,
+    .left__press {
+        transform: scale(0.8);
+    }
+
+    .right__press {
+        top: -30%;
+        left: 45%;
+    }
+
+    .left__press {
+        top: -20%;
+        left: -50%;
+    }
+
+    .small__book:first-child {
+        width: 426px;
+    }
+
+    .desktop__book div {
+        padding-top: var(--s-3xl);
+        padding-bottom: var(--s-6xl);
+        padding-left: var(--s-l);
+    }
+
+    .desktop__book {
+        gap: var(--s-3xl);
+        padding-left: var(--s-2xl);
+    }
+
+    .desktop__book div p {
+        max-width: 420px;
+    }
+
+    .printing__stars {
+        background-position: 50% 170%;
+    }
+
+    .header {
+        padding-bottom: var(--s-2xl);
+    }
+
+    .house__image {
+        min-width: 120px;
+    }
+}
+
+@media only screen and (min-width: 80em) {
+
+    .antwerp__based {
+        background-size: 60%;
+    }
+
+    .map {
+        bottom: -30%;
+        left: center;
+        max-width: 400px;
+    }
+
+    .about__text {
+        padding-top: var(--s-6xl)
+    }
+
+    .about__oficina {
+        left: 60%;
+        top: 35%;
+    }
+}
+
+@media only screen and (min-width: 85em) {
+    body {
+            max-width: 80rem;
+            margin: 0 auto;
+        }
 }
