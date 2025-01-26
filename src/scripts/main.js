@@ -50,17 +50,8 @@ const getRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
 const letters = () => {
-    const shuffledLetters = shuffleArray($letters);
-    shuffledLetters.forEach((letter) => {
+    $letters.forEach((letter) => {
         const randomRotation = getRandomNumber(-8, 8);
         letter.style.transform = `rotate(${randomRotation}deg)`;
         letter.dataset.rotation = randomRotation;
@@ -594,7 +585,7 @@ const starsAnimation = () => {
             start: "-20% center",
             end: "bottom center",
             scrub: true,
-            markers: true,
+            // markers: true,
             once: true,
         }
     })
@@ -611,8 +602,6 @@ const starsAnimation = () => {
     })
 }
 
-
-
 gsap.registerPlugin(ScrollTrigger);
 gsap.from(".letter", {
     scale: 0,
@@ -627,7 +616,7 @@ gsap.from(".letter", {
         // markers: true,
         scrub: false,
     },
-});
+})
 
 gsap.from(".consequences__choice", {
     scale: 0.5,
@@ -642,7 +631,7 @@ gsap.from(".consequences__choice", {
         // markers: true,
         scrub: false,
     },
-});
+})
 
 gsap.from(".left__press", {
     scale: 0.5,
@@ -658,7 +647,7 @@ gsap.from(".left__press", {
         // markers: true,
         scrub: false,
     },
-});
+})
 
 gsap.from(".right__press", {
     scale: 0.5,
@@ -714,7 +703,7 @@ gsap.from(".today__line,today", {
         trigger: ".printing__house",
         start: "top 20%",
         end: "bottom top",
-        markers: true,
+        // markers: true,
         scrub: false,
     },
 })
@@ -728,14 +717,10 @@ gsap.from(".museum p", {
         trigger: ".museum",
         start: "top 80%",
         end: "bottom center",
-        markers: true,
+        // markers: true,
         scrub: false,
     },
 })
-
-
-
-
 
 const scrollAnimation = () => {
     headerAnimations();
@@ -748,8 +733,6 @@ const scrollAnimation = () => {
     hrAnimation();
     starsAnimation();
 }
-
-
 
 const init = () => {
     gsap.registerPlugin(ScrollTrigger);

@@ -333,6 +333,11 @@ a {
     outline: 1px solid var(--coffee);
     outline-offset: 1px;
     margin-top: -1rem;
+    transition: transform 0.3s ease;
+}
+
+.hint__button:hover {
+    transform: scale(1.1);
 }
 
 .hint {
@@ -480,7 +485,6 @@ hr::after {
 
 hr::before {
     left: 0;
-    
 }
 
 hr::after {
@@ -539,6 +543,18 @@ input {
     border: 1px solid var(--text-color);
     background-color: var(--coffee);
     color: var(--cream);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit__button:hover,
+.check:hover {
+    background-color: var(--background);
+    transform: scale(1.1);
+}
+
+.submit__button:active,
+.check:active {
+    transform: scale(0.95);
 }
 
 .hustles {
@@ -730,6 +746,11 @@ input {
     align-items: center;
     text-align: center;
     margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.interaction__choice:hover {
+    transform: scale(1.1);
 }
 
 .interaction__choice p,
@@ -831,7 +852,6 @@ input {
 .consequences__choice picture {
     width: 100%;
     height: auto;
-    /* display: block; */
 }
 
 .consequences__choice picture img {
@@ -917,7 +937,6 @@ input {
 .button__wrapper {
     display: inline-block;
     background-color: var(--coffee);
-    /* border: 1px solid var(--accent-gold); */
     outline: 1px solid var(--coffee);
     outline-offset: 2px;
 }
@@ -1132,7 +1151,6 @@ dialog {
 
 .check {
     display: flex;
-    /* Default state */
     justify-content: center;
     margin: var(--s-s) 0;
 }
@@ -1325,10 +1343,6 @@ dialog {
 
 @media only screen and (min-width: 40em) {
 
-    /* h1 {
-        max-width: 37.5rem;
-    } */
-
     .reputation>p:last-child {
         text-align: center;
     }
@@ -1496,7 +1510,7 @@ dialog {
         border-left: 1px solid var(--cream);
         border-right: 1px solid var(--cream);
         margin: 0 var(--s-s);
-    
+
     }
 
     .narrow__left {
@@ -1753,7 +1767,6 @@ dialog {
 
     .officiana {
         padding-top: var(--s-5xl);
-        /* overflow-x: hidden; */
     }
 
     .about__oficina {
@@ -1855,7 +1868,7 @@ dialog {
 
 @media only screen and (min-width: 75em) {
 
-    .header{
+    .header {
         padding-top: var(--s-5xl);
     }
 
@@ -1965,6 +1978,7 @@ dialog {
     .header>picture img {
         max-width: 42rem;
     }
+
     body {
         max-width: 80rem;
         margin: 0 auto;
