@@ -932,6 +932,8 @@ input {
     border: 1px solid var(--cream);
     background-color: var(--coffee);
     color: var(--cream);
+    transition: background-color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .button__wrapper {
@@ -939,12 +941,19 @@ input {
     background-color: var(--coffee);
     outline: 1px solid var(--coffee);
     outline-offset: 2px;
+    transition: transform 0.3s ease;
 }
 
 .button__position {
     display: flex;
     justify-content: center;
     padding: var(--s-m);
+}
+
+.visit:hover,
+.button__wrapper:hover {
+    background-color: var(--background);
+    transform: scale(1.1);
 }
 
 header {
@@ -1178,6 +1187,64 @@ dialog {
     overflow: hidden;
     border: 0;
 }
+
+.slider {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.slide {
+    max-width: 100%;
+    height: auto;
+    grid-column: 1;
+    grid-row: 1;
+    animation-name: fading;
+    opacity: 0%;
+    animation-duration: 9s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    padding-bottom: var(--s-m);
+}
+
+.slide__one {
+    animation-delay: 0s;
+}
+
+.slide__two {
+    animation-delay: 3s;
+}
+
+.slide__three {
+    animation-delay: 6s;
+}
+
+@keyframes fading {
+
+    10%,
+    30% {
+        opacity: 1;
+    }
+
+    0%,
+    40%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* @keyframes fading {
+
+    0%,
+    25%,
+    100% {
+        opacity: 0
+    }
+
+    15%,
+    20% {
+        opacity: 1;
+    }
+} */
 
 
 @media only screen and (min-width: 25em) {
@@ -1486,6 +1553,11 @@ dialog {
 
     .languages__inter {
         background-size: 65%;
+    }
+
+    .slide {
+        max-width: 50%;
+        margin: 0 auto;
     }
 }
 
@@ -1862,6 +1934,10 @@ dialog {
         background-size: 70%;
         background-repeat: repeat-x;
         background-position: center 23%;
+    }
+
+    .slide {
+        max-width: 30%;
     }
 
 }
