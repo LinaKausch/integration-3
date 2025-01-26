@@ -1121,7 +1121,7 @@ dialog {
 
 .message,
 .answ__msg {
-    margin: var(--s-xs) 0;
+    margin: var(--s-xs) auto;
     color: var(--accent-darkgold);
 }
 
