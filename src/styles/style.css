@@ -138,11 +138,16 @@ strong {
 }
 
 .the {
-    font-size: var(--fs-2);
+    font-size: var(--fs-3);
+    padding-bottom: var(--s-4xs);
+    margin-right: var(--s-2xl);
+    margin-top: -3rem;
+
 }
 
 .cta__text {
     font-weight: 300;
+    padding-top: var(--s-2xs);
 }
 
 .header {
@@ -167,7 +172,7 @@ strong {
 .cta {
     max-width: 100px;
     display: block;
-    margin: 0 auto;
+    margin: var(--s-l) auto;
     animation: moveDown 2s ease-in-out infinite;
 }
 
@@ -691,7 +696,7 @@ input {
 .line {
     width: 100%;
     height: 1px;
-    border-bottom: 1px solid var(--text-color);
+    border-bottom: 3px solid var(--accent-darkgold);
     margin: 0 auto;
     padding-top: var(--s-2xs);
 }
@@ -1211,6 +1216,14 @@ dialog {
 }
 
 @media only screen and (min-width: 30em) {
+    .the {
+        margin-top: -3.4rem;
+    }
+
+    .header>picture img {
+        max-width: 440px;
+    }
+
     .about__item {
         padding-right: 0;
     }
@@ -1309,6 +1322,10 @@ dialog {
 }
 
 @media only screen and (min-width: 40em) {
+
+    /* h1 {
+        max-width: 37.5rem;
+    } */
 
     .reputation>p:last-child {
         text-align: center;
@@ -1456,7 +1473,23 @@ dialog {
     }
 }
 
+
 @media only screen and (min-width: 50em) {
+
+    .the {
+        font-size: var(--fs-3);
+        padding-bottom: var(--s-4xs);
+        margin-right: var(--s-5xl);
+    }
+
+    h1 {
+        margin: 0 auto;
+    }
+
+    .header>picture img {
+        max-width: 39rem;
+    }
+
     .introduction {
         border-left: 1px solid var(--cream);
         border-right: 1px solid var(--cream);
@@ -1575,6 +1608,10 @@ dialog {
         border-right: 1px solid var(--cream);
     }
 
+    .high__standards {
+        position: relative;
+    }
+
     .desktop__line-left {
         position: absolute;
         left: 0;
@@ -1624,6 +1661,45 @@ dialog {
 }
 
 @media only screen and (min-width: 55em) {
+
+    .header {
+        position: relative;
+        padding-top: var(--s-4xl);
+        margin-bottom: var(--s-6xl);
+    }
+
+    .header>.highlight__name,
+    .the,
+    h1,
+    .cta__text {
+        display: flex;
+        justify-content: center;
+        margin-left: 0;
+        max-width: 50%;
+        padding-top: var(--s-m);
+    }
+
+    .cta {
+        position: absolute;
+        left: 20%;
+    }
+
+    .header>picture img {
+        max-width: 30rem;
+        transform: scaleX(-1);
+    }
+
+    .header picture {
+        position: absolute;
+        top: 0;
+        right: -5%;
+        z-index: -3;
+    }
+
+    .the {
+        margin-top: 0;
+    }
+
     .js-enabled .hamburger {
         display: none;
     }
@@ -1649,6 +1725,15 @@ dialog {
 }
 
 @media only screen and (min-width: 60em) {
+
+    .header>picture img {
+        max-width: 35rem;
+    }
+
+    .header picture {
+        top: -10%;
+    }
+
     .nav__menu__list li {
         padding: var(--s-2xs);
     }
@@ -1765,6 +1850,19 @@ dialog {
 }
 
 @media only screen and (min-width: 75em) {
+
+    .header{
+        padding-top: var(--s-5xl);
+    }
+
+    .header>picture img {
+        max-width: 40rem;
+    }
+
+    .header picture {
+        top: 0;
+    }
+
     p {
         max-width: 41rem;
     }
@@ -1834,6 +1932,7 @@ dialog {
     .house__image {
         min-width: 120px;
     }
+
 }
 
 @media only screen and (min-width: 80em) {
@@ -1859,8 +1958,11 @@ dialog {
 }
 
 @media only screen and (min-width: 85em) {
+    .header>picture img {
+        max-width: 42rem;
+    }
     body {
-            max-width: 80rem;
-            margin: 0 auto;
-        }
+        max-width: 80rem;
+        margin: 0 auto;
+    }
 }
