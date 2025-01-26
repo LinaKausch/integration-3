@@ -41,6 +41,7 @@ html {
     --s-6xl: clamp(17rem, 15.5227rem + 6.0606vw, 21.25rem);
 
     --letter-s: 0.1rem;
+    --bible-width: 52%;
 }
 
 img {
@@ -470,7 +471,7 @@ hr::after {
     content: '';
     display: inline-block;
     position: absolute;
-    width: 52%;
+    width: var(--bible-width);
     height: 100%;
     background-image: url(../assets/img/polyglot_250.avif);
     background-repeat: repeat;
@@ -479,6 +480,7 @@ hr::after {
 
 hr::before {
     left: 0;
+    
 }
 
 hr::after {
@@ -1494,6 +1496,7 @@ dialog {
         border-left: 1px solid var(--cream);
         border-right: 1px solid var(--cream);
         margin: 0 var(--s-s);
+    
     }
 
     .narrow__left {
@@ -1750,6 +1753,7 @@ dialog {
 
     .officiana {
         padding-top: var(--s-5xl);
+        /* overflow-x: hidden; */
     }
 
     .about__oficina {
@@ -1926,7 +1930,7 @@ dialog {
     }
 
     .header {
-        padding-bottom: var(--s-2xl);
+        padding-bottom: var(--s-m);
     }
 
     .house__image {

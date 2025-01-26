@@ -46,7 +46,6 @@ let isTouch;
 let lastTap = 0;
 let selectedChoices = [];
 
-
 const getRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -86,7 +85,6 @@ const enableDragging = (letter) => {
     letter.addEventListener('dragstart', (e) => e.preventDefault());
 }
 
-
 const grabLetter = (e) => {
     const isTouch = e.type === 'touchstart';
     const pointerX = isTouch ? e.touches[0].pageX : e.pageX;
@@ -96,8 +94,6 @@ const grabLetter = (e) => {
     if (rotation < 172 || rotation > 188) return;
 
     draggedLetter = e.target;
-
-
     letterClone = draggedLetter.cloneNode(true);
     document.body.appendChild(letterClone);
 
@@ -129,9 +125,7 @@ const releaseLetter = () => {
     if (!draggedLetter || !letterClone) return;
 
     const letterKey = draggedLetter.dataset.holder;
-
     const matchingHolder = document.querySelector(`.holder[data-holder="${letterKey}"]`);
-
 
     if (matchingHolder) {
         const holderRect = matchingHolder.getBoundingClientRect();
@@ -170,7 +164,6 @@ const releaseLetter = () => {
     document.removeEventListener(isTouch ? 'touchend' : 'mouseup', releaseLetter);
 }
 
-
 const addListeners = () => {
     $letters.forEach((letter) => {
         letter.dataset.rotation = letter.dataset.rotation || 0;
@@ -180,7 +173,6 @@ const addListeners = () => {
         letter.addEventListener('dragstart', (e) => e.preventDefault());
     });
 }
-
 
 const checkCompletion = () => {
     const holders = document.querySelectorAll('.holder');
@@ -204,11 +196,11 @@ const checkCompletion = () => {
 
 const showHint = (index) => {
     $hints[index].classList.remove('hidden');
-};
+}
 
 const hideHint = (index) => {
     $hints[index].classList.add('hidden');
-};
+}
 
 const clickableChoice = () => {
     $choices.forEach(choice => {
@@ -226,11 +218,11 @@ const clickableChoice = () => {
             $message.textContent = message;
             $result.textContent = result;
             $dialog.showModal();
-        })
-    })
+        });
+    });
     $closeButton.addEventListener('click', () => {
         $dialog.close();
-    })
+    });
 }
 
 const diceDevice = () => {
@@ -268,14 +260,12 @@ const rollDiceWithAnimation = () => {
         `;
     }, animationInterval);
 
-
     setTimeout(() => {
         clearInterval(intervalId);
 
         rollDice();
     }, animationDuration);
 }
-
 
 const rollDice = () => {
     const dice1 = diceSides[Math.floor(Math.random() * diceSides.length)];
@@ -285,7 +275,6 @@ const rollDice = () => {
         <img src="${dice1.image}" alt="Dice 1" width="40%">
         <img src="${dice2.image}" alt="Dice 2" width="40%">
     `;
-
 
     const explanationElement = document.querySelector('.explanation');
 
@@ -313,7 +302,7 @@ const handleFormSubmit = (event) => {
 
 const updateDialogMessage = (message) => {
     $answMsg.textContent = message;
-};
+}
 
 const handleChoice = () => {
     $conChoices.forEach((choice) => {
@@ -325,7 +314,7 @@ const handleChoice = () => {
                 choice.style.opacity = '1';
             } else {
                 if (selectedChoices.length < 3) {
-                    selectedChoices.push(choice); 
+                    selectedChoices.push(choice);
                     choice.style.opacity = '0.5';
                 } else {
                     $feedback.textContent = 'You can only select 3 consequences.';
@@ -340,7 +329,7 @@ const handleChoice = () => {
             }
         });
     });
-};
+}
 
 const handleCheck = () => {
     if (selectedChoices.length === 3) {
@@ -353,13 +342,13 @@ const handleCheck = () => {
             $feedback.textContent = 'You are RIGHT!';
             $feedback.classList.add('feedback__right');
         } else {
-            $feedback.textContent = 'Right answers: Prison, Heavy fines, Death'; 
+            $feedback.textContent = 'Right answers: Prison, Heavy fines, Death';
             $feedback.classList.remove('feedback__right');
         }
     } else {
         $feedback.textContent = 'Please select exactly 3 consequences.';
     }
-};
+}
 
 const consequencesIntr = () => {
     $checkBtn.classList.add('hidden');
@@ -384,7 +373,7 @@ const toggleHint = () => {
 
         button.addEventListener('click', (e) => e.preventDefault());
     });
-};
+}
 
 const diceListeners = () => {
     document.addEventListener('keydown', (e) => {
@@ -392,7 +381,14 @@ const diceListeners = () => {
             e.preventDefault();
             rollDiceWithAnimation();
         }
-    })
+    });
+}
+
+const submitForm = () => {
+    $numberForm.addEventListener('submit', handleFormSubmit);
+    $closeButtonThree.addEventListener('click', () => {
+        $choiceDialog.close();
+    });
 }
 
 const diceActions = () => {
@@ -400,19 +396,368 @@ const diceActions = () => {
     $dices.addEventListener('touchstart', handleDoubleTap);
 }
 
-const init = () => {
-    hamburgerMenu();
+const interactions = () => {
     clickableChoice();
-    letters();
     addListeners();
-    toggleHint();
     consequencesIntr();
     // diceActions();
-    $numberForm.addEventListener('submit', handleFormSubmit);
-    $closeButtonThree.addEventListener('click', () => {
-        $choiceDialog.close();
-    });
     diceDevice();
+    submitForm();
+}
+
+const headerAnimations = () => {
+    gsap.from('header', {
+        opacity: 0,
+        y: -100,
+        duration: 1,
+        ease: 'power2.out',
+    });
+
+    gsap.from('.cta', {
+        opacity: 0,
+        scale: 0.8,
+        duration: 1,
+        ease: 'power2.out',
+    });
+}
+
+const introAnimation = () => {
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".introduction",
+            start: "top 90%",
+            end: "top -80%",
+            scrub: true,
+            // markers: true,
+            once: true,
+        },
+    })
+    tl.from(".intro", {
+        y: 150,
+        opacity: 0,
+        duration: 1,
+    })
+    tl.from(".born", {
+        opacity: 0,
+        scale: 0.2,
+        duration: 1,
+        y: 100,
+    })
+    tl.from('.antwerp__based img', {
+        opacity: 0,
+        x: 100,
+        duration: 1,
+    })
+    tl.from('.antwerp', {
+        opacity: 0.2,
+        scale: 0.2,
+        duration: 1,
+    })
+}
+
+const officianaAnimation = () => {
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".officiana",
+            start: "top center",
+            end: "top -50%",
+            scrub: true,
+            // markers: true,
+        },
+    })
+    tl.from('.house__image', {
+        scale: 0.1,
+        opacity: 0,
+        duration: 1,
+        delay: 1,
+    })
+    tl.to('.transition__map', {
+        x: -200,
+        scale: 2.4,
+        duration: 1,
+    })
+        .to('.transition__map path', {
+            fill: "#DBB78B",
+        }, "<");
+
+}
+
+const qualityAnimation = () => {
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".quality",
+            start: "top 70%",
+            end: "top -20%",
+            scrub: true,
+            // markers: true,
+            once: true,
+        },
+    })
+
+    tl.from('.quality>p', {
+        x: "50%",
+        y: "30%",
+        ease: 'power2.out',
+    })
+        .from('.quality picture', {
+            x: "-50%",
+            y: "30%",
+            ease: 'power2.out',
+        }, "<")
+}
+
+const hustlesAnimation = () => {
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".hustles",
+            start: "top center",
+            end: "top top",
+            scrub: true,
+            // markers: true,
+            once: true,
+        },
+    })
+
+    tl.from('.hustles>p', {
+        x: "-50%",
+        y: "30%",
+        ease: 'power2.out',
+    })
+        .from('.hustles picture', {
+            x: "50%",
+            y: "30%",
+            ease: 'power2.out',
+        }, "<")
+}
+
+const standardsAnimation = () => {
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".high__standards",
+            start: "top 90%",
+            end: "top top",
+            scrub: true,
+            // markers: true,
+            once: true,
+        },
+    })
+    tl.from('.standards__intro', {
+        opacity: 0,
+        ease: 'power2.out',
+        duration: 1
+    })
+    tl.from('.standards__intro img', {
+        rotation: -5,
+        ease: "back.out(5)",
+        duration: 1,
+    })
+    tl.from('.most', {
+        scale: 0,
+        opacity: 0,
+        duration: 2,
+        ease: "back.out(1.7)",
+        delay: 2,
+    })
+}
+
+const hrAnimation = () => {
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.polyglot',
+            start: "top bottom",
+            end: "50% center",
+            scrub: true,
+            // markers: true,
+            once: true,
+        }
+    })
+    tl.from('.top', {
+        '--bible-width': '0',
+        duration: 1,
+    })
+    tl.from('.bottom', {
+        '--bible-width': '0',
+        duration: 1,
+    }, "<");
+    tl.from('.polyglot', {
+        opacity: 0,
+        scale: 0.2,
+        duration: 2,
+    })
+}
+
+const starsAnimation = () => {
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.printing__stars',
+            start: "-20% center",
+            end: "bottom center",
+            scrub: true,
+            markers: true,
+            once: true,
+        }
+    })
+
+    tl.from('.printing__stars', {
+        opacity: 0,
+        scale: 0.5,
+        duration: 1,
+    })
+    tl.from('.printing__stars p', {
+        opacity: 0,
+        y: "60%",
+        duration: 2,
+    })
+}
+
+
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.from(".letter", {
+    scale: 0,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: "back.out(1.7)",
+    scrollTrigger: {
+        trigger: ".metal__letters",
+        start: "top 80%",
+        end: "bottom center",
+        // markers: true,
+        scrub: false,
+    },
+});
+
+gsap.from(".consequences__choice", {
+    scale: 0.5,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: "back.out(1.2)",
+    scrollTrigger: {
+        trigger: ".choices",
+        start: "top 80%",
+        end: "bottom center",
+        // markers: true,
+        scrub: false,
+    },
+});
+
+gsap.from(".left__press", {
+    scale: 0.5,
+    x: "-50%",
+    y: "20%",
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".risks",
+        start: "top 80%",
+        end: "bottom center",
+        // markers: true,
+        scrub: false,
+    },
+});
+
+gsap.from(".right__press", {
+    scale: 0.5,
+    x: "50%",
+    y: "20%",
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".risks",
+        start: "top 80%",
+        end: "bottom center",
+        // markers: true,
+        scrub: false,
+    },
+})
+
+gsap.from(".dangerous", {
+    scale: 0.5,
+    opacity: 0,
+    duration: 1,
+    ease: "back.out(1.7)",
+    scrollTrigger: {
+        trigger: ".dangerous",
+        start: "top 80%",
+        end: "bottom top",
+        // markers: true,
+        scrub: false,
+    },
+})
+
+gsap.from(".dices img", {
+    scale: 0,
+    opacity: 0,
+    duration: 1,
+    rotation: 360,
+    ease: "back.out(1.2)",
+    scrollTrigger: {
+        trigger: ".dice__inter",
+        start: "top center",
+        end: "bottom top",
+        // markers: true,
+        scrub: false,
+    },
+})
+
+gsap.from(".today__line,today", {
+    opacity: 0,
+    scale: 0.2,
+    duration: 1,
+    ease: "back.out(1.2)",
+    scrollTrigger: {
+        trigger: ".printing__house",
+        start: "top 20%",
+        end: "bottom top",
+        markers: true,
+        scrub: false,
+    },
+})
+
+gsap.from(".museum p", {
+    opacity: 0,
+    scale: 0.2,
+    duration: 1,
+    ease: "back.out(1.2)",
+    scrollTrigger: {
+        trigger: ".museum",
+        start: "top 80%",
+        end: "bottom center",
+        markers: true,
+        scrub: false,
+    },
+})
+
+
+
+
+
+const scrollAnimation = () => {
+    headerAnimations();
+    introAnimation();
+    officianaAnimation();
+    qualityAnimation();
+    // lettersAnimation();
+    standardsAnimation();
+    hustlesAnimation();
+    hrAnimation();
+    starsAnimation();
+}
+
+
+
+const init = () => {
+    gsap.registerPlugin(ScrollTrigger);
+    hamburgerMenu();
+    letters();
+    toggleHint();
+    interactions();
+    scrollAnimation();
 }
 
 init();
